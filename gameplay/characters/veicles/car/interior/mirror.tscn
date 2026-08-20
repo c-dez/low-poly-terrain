@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://0ym2yoqtnca3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y3jou"]
+size = Vector3(0.107, 0.015, 0.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cs7vh"]
+viewport_path = NodePath("Mirror")
+
+[node name="Mirror" type="Node3D" unique_id=1520060689]
+
+[node name="Mirror" type="SubViewport" parent="." unique_id=1761042122]
+size = Vector2i(200, 100)
+
+[node name="Camera3D" type="Camera3D" parent="Mirror" unique_id=1009725954]
+transform = Transform3D(-1, 0, 8.7422784e-08, 2.0643869e-09, 0.9997212, 0.023613835, -8.73984e-08, 0.023613835, -0.9997212, 0, 0, 0.049595714)
+current = true
+fov = 33.749996
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=55521059]
+transform = Transform3D(2.925363, 0, 0, 0, 11.883483, 0, 0, 0, 0.9999999, 0, 0, 0)
+mesh = SubResource("BoxMesh_y3jou")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=372355710]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1242128476]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=1947991474]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("ViewportTexture_cs7vh")

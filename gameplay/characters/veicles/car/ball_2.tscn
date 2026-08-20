@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b7loarqwfqqmr"]
+
+[ext_resource type="Script" uid="uid://bulhumogrbe5c" path="res://gameplay/characters/veicles/car/ball_2.gd" id="1_e6xge"]
+[ext_resource type="Curve" uid="uid://cugnpr7oj4cbm" path="res://gameplay/characters/veicles/car/brake_curve.tres" id="2_5eiyd"]
+[ext_resource type="Curve" uid="uid://dhat277a0vby0" path="res://gameplay/characters/veicles/car/accel_curve.tres" id="2_y58nf"]
+[ext_resource type="Script" uid="uid://ya17kfcdyv3" path="res://gameplay/characters/veicles/car/camera.gd" id="4_h8dks"]
+[ext_resource type="PackedScene" uid="uid://combri42j52uj" path="res://gameplay/characters/veicles/car/interior/interior.tscn" id="5_mh3kc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bfhhu"]
+bounce = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_e6xge"]
+size = Vector3(1, 0.62976074, 1.1669922)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5eiyd"]
+radius = 1.0
+
+[node name="Ball_2" type="RigidBody3D" unique_id=663138485]
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_bfhhu")
+gravity_scale = 5.0
+angular_damp = 3.0
+script = ExtResource("1_e6xge")
+accel_curve = ExtResource("2_y58nf")
+brake_curve = ExtResource("2_5eiyd")
+
+[node name="Camera" type="SpringArm3D" parent="." unique_id=532459588]
+transform = Transform3D(1.5117059, 0, 0, 0, 0.99999994, 0, 0, 0, 2.1734254, 0, 0, 0)
+script = ExtResource("4_h8dks")
+hight_offset = 2.0
+weight = 10.0
+
+[node name="Camera3D" type="Camera3D" parent="Camera" unique_id=137436697]
+transform = Transform3D(0.6615043, 0, 0, 0, 0.855846, 0.001208217, 0, -0.0014937345, 0.6922566, 0, 0, 0)
+current = true
+
+[node name="Interior" parent="Camera/Camera3D" unique_id=755995022 instance=ExtResource("5_mh3kc")]
+transform = Transform3D(1, 0, 0, 0, 0.9999928, -0.0037933197, 0, 0.00379332, 0.99999285, -0.07793935, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera/Camera3D" unique_id=1723459583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1025154, -0.25766516, -1.257969)
+light_color = Color(0.99661547, 0.8168725, 0.6077984, 1)
+spot_range = 100.0
+spot_attenuation = 0.0
+spot_angle = 55.4
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=622788150]
+transform = Transform3D(1.511706, 0, 0, 0, 1, 0, 0, 0, 2.1734254, 0, -0.18511963, 0.2759288)
+visible = false
+mesh = SubResource("BoxMesh_e6xge")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1323369458]
+shape = SubResource("SphereShape3D_5eiyd")
+
+[node name="Ray" type="RayCast3D" parent="." unique_id=1683764935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9175177, 0)
+
+[node name="Label" type="Label" parent="." unique_id=1041655198]
+anchors_preset = -1
+anchor_left = 0.36200002
+anchor_top = 0.83100003
+anchor_right = 0.432
+anchor_bottom = 0.89100003
+grow_vertical = 2
+
+[node name="LateralLabel" type="Label" parent="." unique_id=192806762]
+visible = false
+offset_left = 288.0
+offset_top = 254.0
+offset_right = 328.0
+offset_bottom = 277.0
+
+[node name="DebugLabel" type="Label" parent="." unique_id=58837526]
+visible = false
+offset_left = 411.0
+offset_top = 31.0
+offset_right = 451.0
+offset_bottom = 54.0

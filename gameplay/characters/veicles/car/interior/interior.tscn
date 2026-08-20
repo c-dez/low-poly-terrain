@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://combri42j52uj"]
+
+[ext_resource type="Script" path="res://gameplay/characters/veicles/car/interior/interior.gd" id="1_irq1c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y3jou"]
+size = Vector3(0.05291748, 0.5840454, 0.03112793)
+
+[sub_resource type="BoxMesh" id="BoxMesh_utgjw"]
+size = Vector3(0.6265793, 0.05480957, 0.37109375)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t6v3t"]
+size = Vector3(0.5048828, 0.2836914, 0.46972656)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cs7vh"]
+size = Vector3(0.056640625, 0.30078125, 0.41357422)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_utgjw"]
+albedo_color = Color(1, 0.22352941, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y3jou"]
+material = SubResource("StandardMaterial3D_utgjw")
+top_radius = 0.05
+bottom_radius = 0.12207031
+height = 0.01
+radial_segments = 8
+
+[sub_resource type="BoxMesh" id="BoxMesh_3iqn3"]
+size = Vector3(0.265, 0.055, 0.01)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y3jou"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Interior" type="Node3D" unique_id=755995022]
+script = ExtResource("1_irq1c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=223007029]
+transform = Transform3D(0.60593414, 0, 0, 0, 0.76367354, -0.64560264, 0, 0.64560264, 0.76367354, 0.27889338, -0.06313372, -0.4393124)
+mesh = SubResource("BoxMesh_y3jou")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=837841338]
+transform = Transform3D(0.7742212, 0, 0, 0, 0.76367354, -0.64560264, 0, 0.64560264, 0.76367354, -0.28456947, -0.06313372, -0.4393124)
+mesh = SubResource("BoxMesh_y3jou")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1185631691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005987078, 0.17964065, -0.11398294)
+mesh = SubResource("BoxMesh_utgjw")
+
+[node name="Frente" type="MeshInstance3D" parent="." unique_id=583580601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0024414063, -0.3581543, -0.67936057)
+mesh = SubResource("BoxMesh_t6v3t")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1476300361]
+transform = Transform3D(0.37791163, 0, 0, 0, 1, 0, 0, 0, 1, -0.2537446, -0.34960938, -0.25758094)
+mesh = SubResource("BoxMesh_cs7vh")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=463411566]
+transform = Transform3D(0.5035578, 0, 0, 0, 1, 0, 0, 0, 1, 0.25583398, -0.34960938, -0.27285442)
+mesh = SubResource("BoxMesh_cs7vh")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=634770889]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.13444169, -0.26558095, -0.3943641)
+mesh = SubResource("CylinderMesh_y3jou")
+
+[node name="mirror" type="MeshInstance3D" parent="." unique_id=1726627020]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.111903846, -0.2894304)
+mesh = SubResource("BoxMesh_3iqn3")
+
+[node name="Sprite3D" type="Sprite3D" parent="mirror" unique_id=254148501]
+transform = Transform3D(0.05000246, 0, 0, 0, 0.040677216, 0, 0, 0, 1, 0, 0, 0.0071107447)
+texture = SubResource("ViewportTexture_y3jou")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1999896200]
+size = Vector2i(512, 128)
+render_target_update_mode = 4
+
+[node name="RearCamera" type="Camera3D" parent="SubViewport" unique_id=1926761155]
+transform = Transform3D(-1, -1.0075578e-15, 8.742278e-08, 0, 1, 1.1525117e-08, -8.742278e-08, 1.1525117e-08, -1, -3.3687263e-16, 0.3343457, 3.853373e-09)
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=665753286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.34277374)
