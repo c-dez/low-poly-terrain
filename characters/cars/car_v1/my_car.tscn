@@ -1172,19 +1172,20 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ox0mt")
 
-[node name="myCar" unique_id=1270817925 node_paths=PackedStringArray("wheel_traction_left", "wheel_traction_right", "wheel_rear_left", "wheel_rear_right", "camera") instance=ExtResource("1_b0402")]
+[node name="myCar" unique_id=1270817925 node_paths=PackedStringArray("wheel_front_left", "wheel_front_right", "wheel_rear_left", "wheel_rear_right", "camera") instance=ExtResource("1_b0402")]
 mass = 900.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.5, 0)
 torque = 6000
 max_RPM = 2000
 turn_speed = 10.0
-wheel_traction_left = NodePath("Front_Left_Wheel")
-wheel_traction_right = NodePath("Front_Right_Wheel")
+wheel_front_left = NodePath("Front_Left_Wheel")
+wheel_front_right = NodePath("Front_Right_Wheel")
 wheel_rear_left = NodePath("Rear_Left_Wheel")
 wheel_rear_right = NodePath("Rear_Right_Wheel")
 camera = NodePath("SpringArm3D")
-drift_grip = 2.0
+normal_grip = 1.0
+drift_grip = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=277272717]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 0.29541087, -0.061701655)
@@ -1239,7 +1240,6 @@ mesh = SubResource("ArrayMesh_xhsjm")
 
 [node name="Front_Left_Wheel" type="VehicleWheel3D" parent="." index="3" unique_id=1323071629]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.92770195, 0.32876498, 1.1849495)
-use_as_traction = true
 use_as_steering = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.52
@@ -1253,7 +1253,6 @@ mesh = SubResource("ArrayMesh_232uk")
 
 [node name="Front_Right_Wheel" type="VehicleWheel3D" parent="." index="4" unique_id=1395785004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9277029, 0.32876498, 1.1849498)
-use_as_traction = true
 use_as_steering = true
 wheel_roll_influence = 1.0
 wheel_radius = 0.52
@@ -1288,3 +1287,7 @@ suspension_max_force = 60000.0
 
 [node name="Car_04_Wheel_RR" type="MeshInstance3D" parent="Rear_Right_Wheel" index="0" unique_id=1091054577]
 mesh = SubResource("ArrayMesh_6400j")
+
+[node name="Label" type="Label" parent="." index="7" unique_id=862670395]
+offset_right = 40.0
+offset_bottom = 23.0

@@ -6,11 +6,14 @@ extends VehicleBody3D
 @export var max_RPM: int = 1500
 @export var turn_speed: float = 3.0
 @export var turn_amount: float = 0.3
-@export var wheel_traction_left: VehicleWheel3D
-@export var wheel_traction_right: VehicleWheel3D
+@export var wheel_front_left: VehicleWheel3D
+@export var wheel_front_right: VehicleWheel3D
 @export var wheel_rear_left: VehicleWheel3D
 @export var wheel_rear_right: VehicleWheel3D
 @export var suspension_travel := 0.05
+
+var traction_wheel_left: VehicleWheel3D
+var traction_wheel_right: VehicleWheel3D
 
 @export var camera: SpringArm3D
 
@@ -24,60 +27,64 @@ var _velocimetro_time = velocimetro_time
 var grip
 
 var is_drifting := false
-var brake_force
+var brake_strength: float = 0.0
+
+@onready var label: Label = $Label
+enum TRACTION {
+    front,
+    rear
+}
+@export var traction := TRACTION.rear
+
+
 func _ready() -> void:
     for child in get_children():
         if child is VehicleWheel3D:
             child.suspension_travel = suspension_travel
 
-func _process(delta: float) -> void:
-    brake_force = Input.get_action_strength('L2_button')
-    # print(brake_force)
+    set_traction()
+
+
+func _process(_delta: float) -> void:
+    brake_strength = Input.get_action_strength('L2_button')
+    # print(brake_strength)
+
+    camera_toggle()
 
 
 func _physics_process(delta: float) -> void:
     # var dir := Input.get_action_strength('R2_button') 
-    var dir := Input.get_action_strength('R2_button') - (Input.get_action_strength('L2_button')*0.3)
+    var dir := Input.get_action_strength('R2_button') - (Input.get_action_strength('L2_button') * 0.3)
     var steering_dir := Input.get_action_strength('left') - Input.get_action_strength('right')
 
-    var RPM_left := wheel_traction_left.get_rpm()
-    var RPM_right := wheel_traction_right.get_rpm()
+    # var RPM_left := wheel_front_left.get_rpm()
+    # var RPM_right := wheel_front_right.get_rpm()
+    var RPM_left := traction_wheel_left.get_rpm()
+    var RPM_right := traction_wheel_right.get_rpm()
     var RPM = (RPM_left + RPM_right / 2)
-    # var brake_force = Input.get_action_strength('L2_button')
 
     engine_force = dir * torque * (1.0 - RPM / max_RPM)
     # steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
 
     #no acelerando
     if dir == 0:
-        # brake = 3
+        brake = 3
         pass
     else:
         brake = 0
 
     #brake
     if Input.is_action_pressed('L2_button'):
-        brake = lerp(brake, brake_force * 1, 10 * delta)
+        brake = lerp(brake, brake_strength * 0.5, 0.5 * delta)
         is_drifting = true
     else:
         is_drifting = false
-        # brake = 0
-        # print(brake)
-
-    # Lateral velocity
-    var right := global_transform.basis.x
-    var lateral_speed: float = linear_velocity.dot(right)
-
-    
 
     if is_drifting:
-        grip = drift_grip * brake_force
-        # wheel_rear_left.wheel_friction_slip = 1.4
-        # wheel_rear_right.wheel_friction_slip = 1.4
-        steering = lerp(steering, steering_dir * turn_amount *brake_force * 1.3, turn_speed * delta)
-
-
-        
+        grip = drift_grip
+        wheel_rear_left.wheel_friction_slip = 1.4
+        wheel_rear_right.wheel_friction_slip = 1.4
+        steering = lerp(steering, steering_dir * turn_amount * brake_strength * 1.2, turn_speed * delta)
     else:
         grip = normal_grip
         steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
@@ -85,19 +92,56 @@ func _physics_process(delta: float) -> void:
         wheel_rear_left.wheel_friction_slip = 2
         wheel_rear_right.wheel_friction_slip = 2
 
+    # Lateral velocity
+    var right := global_transform.basis.x
+    var lateral_speed: float = linear_velocity.dot(right)
+
     apply_central_force(
         - right * lateral_speed * grip * mass
     )
-    
+    debug_label(lateral_speed, delta)
 
-    # velocimetro
+
+func camera_toggle():
+    var d1 = 0.0
+    var d2 = -5.0
+    if Input.is_action_just_pressed('a_button'):
+        if camera.spring_length == d1:
+            camera.spring_length = d2
+        else:
+            camera.spring_length = d1
+
+func debug_label(text, delta: float) -> void:
     _velocimetro_time -= delta
     if _velocimetro_time < 0:
         _velocimetro_time = velocimetro_time
-        print(linear_velocity.dot(global_transform.basis.z) *3.6)
-        # print(rad_to_deg(steering))
-        # print(brake_force)
+        var _speed = linear_velocity.dot(global_transform.basis.z) * 3.6
+        
 
+        # var text = lateral_speed
+        label.text = str(
 
-    #camera lerp
-    # camera.look_at(global_transform.basis.z,Vector3.UP)
+            int(text)
+
+            )
+
+func set_traction() -> void:
+    match traction:
+        TRACTION.front:
+            wheel_front_left.use_as_traction = true
+            wheel_front_right.use_as_traction = true 
+            wheel_rear_left.use_as_traction = false
+            wheel_rear_right.use_as_traction = false
+
+            traction_wheel_left = wheel_front_left
+            traction_wheel_right = wheel_front_right
+            pass
+        TRACTION.rear:
+            wheel_front_left.use_as_traction = false
+            wheel_front_right.use_as_traction = false 
+            wheel_rear_left.use_as_traction = true
+            wheel_rear_right.use_as_traction = true
+
+            traction_wheel_left = wheel_rear_left
+            traction_wheel_right = wheel_rear_right
+            pass

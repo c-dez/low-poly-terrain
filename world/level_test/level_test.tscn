@@ -5,6 +5,18 @@
 [ext_resource type="Script" uid="uid://difs1qg4mpcpw" path="res://addons/road-generator/nodes/road_point.gd" id="3_jy51n"]
 [ext_resource type="PackedScene" uid="uid://d3y4uw8c6de6a" path="res://characters/cars/car_v1/my_car.tscn" id="4_nkae4"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nkae4"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_jy51n"]
+sky_material = SubResource("ProceduralSkyMaterial_nkae4")
+
+[sub_resource type="Environment" id="Environment_sb4ee"]
+background_mode = 2
+sky = SubResource("Sky_jy51n")
+glow_enabled = true
+
 [sub_resource type="Gradient" id="Gradient_cd0tp"]
 offsets = PackedFloat32Array(0.2, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -71,15 +83,22 @@ mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_2mhjr")])
 
 [node name="LevelTest" type="Node3D" unique_id=1162136279]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=75307593]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1507213839]
+environment = SubResource("Environment_sb4ee")
+
 [node name="myCar" parent="." unique_id=1270817925 instance=ExtResource("4_nkae4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.694187, 1.0781016, 0)
 mass = 500.0
 torque = 3500
 max_RPM = 1500
 turn_speed = 3.0
-turn_amount = 0.3
-normal_grip = 15.0
-drift_grip = 15.0
+turn_amount = 0.2
+normal_grip = 10.0
+drift_grip = 2.0
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=992691061]
 data_directory = "res://"
@@ -245,7 +264,7 @@ transform = Transform3D(0.9384217, 1.4146305e-16, -0.34549195, -1.5074571e-16, 1
 script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 18.433033
+prior_mag = 18.433032999999998
 next_mag = 17.434635
 prior_pt_init = NodePath("../RP_018")
 next_pt_init = NodePath("../RP_016")
@@ -256,7 +275,7 @@ script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.0
-next_mag = 18.433033
+next_mag = 18.433032999999998
 prior_pt_init = NodePath("../RP_019")
 next_pt_init = NodePath("../RP_017")
 
