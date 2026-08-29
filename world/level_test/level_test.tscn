@@ -71,6 +71,16 @@ mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_2mhjr")])
 
 [node name="LevelTest" type="Node3D" unique_id=1162136279]
 
+[node name="myCar" parent="." unique_id=1270817925 instance=ExtResource("4_nkae4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.694187, 1.0781016, 0)
+mass = 500.0
+torque = 3500
+max_RPM = 1500
+turn_speed = 3.0
+turn_amount = 0.3
+normal_grip = 15.0
+drift_grip = 15.0
+
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=992691061]
 data_directory = "res://"
 material = SubResource("Terrain3DMaterial_sb4ee")
@@ -289,15 +299,6 @@ prior_mag = 16.0
 next_mag = 20.938591
 prior_pt_init = NodePath("../RP_004")
 next_pt_init = NodePath("../RP_001")
-
-[node name="myCar" parent="." unique_id=1270817925 instance=ExtResource("4_nkae4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5683918, 0)
-mass = 500.0
-torque = 3000
-turn_speed = 3.0
-turn_amount = 0.3
-normal_grip = 10.0
-drift_grip = 5.0
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=925506243]
 use_collision = true

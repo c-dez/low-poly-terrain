@@ -1,11 +1,11 @@
 extends VehicleBody3D
 
 
-@export var torque: int = 2000
+@export var torque: int = 3500
 ## Smooth speed changes
-@export var max_RPM: int = 600
+@export var max_RPM: int = 1500
 @export var turn_speed: float = 3.0
-@export var turn_amount: float = 0.4
+@export var turn_amount: float = 0.3
 @export var wheel_traction_left: VehicleWheel3D
 @export var wheel_traction_right: VehicleWheel3D
 @export var wheel_rear_left: VehicleWheel3D
@@ -19,8 +19,8 @@ var velocimetro_time := 0.5
 var _velocimetro_time = velocimetro_time
 
 # drifting
-@export var normal_grip := 8.0
-@export var drift_grip := 1.5
+@export var normal_grip := 15.0
+@export var drift_grip := 15.0
 var grip
 
 var is_drifting := false
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
     # var dir := Input.get_action_strength('R2_button') 
-    var dir := Input.get_action_strength('R2_button') - Input.get_action_strength('L2_button')*0.5
+    var dir := Input.get_action_strength('R2_button') - (Input.get_action_strength('L2_button')*0.3)
     var steering_dir := Input.get_action_strength('left') - Input.get_action_strength('right')
 
     var RPM_left := wheel_traction_left.get_rpm()
@@ -50,7 +50,8 @@ func _physics_process(delta: float) -> void:
 
     #no acelerando
     if dir == 0:
-        brake = 3
+        # brake = 3
+        pass
     else:
         brake = 0
 
@@ -71,9 +72,9 @@ func _physics_process(delta: float) -> void:
 
     if is_drifting:
         grip = drift_grip * brake_force
-        wheel_rear_left.wheel_friction_slip = 1.4
-        wheel_rear_right.wheel_friction_slip = 1.4
-        steering = lerp(steering, steering_dir * turn_amount *brake_force * 2.0, turn_speed * delta)
+        # wheel_rear_left.wheel_friction_slip = 1.4
+        # wheel_rear_right.wheel_friction_slip = 1.4
+        steering = lerp(steering, steering_dir * turn_amount *brake_force * 1.3, turn_speed * delta)
 
 
         
