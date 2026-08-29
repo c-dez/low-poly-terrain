@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bi873gdxrcke7"]
+
+[ext_resource type="Script" uid="uid://cs2pqxjiw47gr" path="res://characters/cars/car_v1/car_v_1.gd" id="1_ep2ma"]
+
+[node name="CarV1" type="VehicleBody3D" unique_id=1270817925]
+script = ExtResource("1_ep2ma")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=1091477968]
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=608347835]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 1, 0)
