@@ -1172,18 +1172,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ox0mt")
 
-[node name="myCar" unique_id=1270817925 node_paths=PackedStringArray("wheel_traction_left", "wheel_traction_right", "wheel_rear_left", "wheel_rear_right") instance=ExtResource("1_b0402")]
+[node name="myCar" unique_id=1270817925 node_paths=PackedStringArray("wheel_traction_left", "wheel_traction_right", "wheel_rear_left", "wheel_rear_right", "camera") instance=ExtResource("1_b0402")]
 mass = 900.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.5, 0)
-torque = 6000
-max_RPM = 900
+torque = 5000
+max_RPM = 2000
 turn_speed = 5.0
 wheel_traction_left = NodePath("Front_Left_Wheel")
 wheel_traction_right = NodePath("Front_Right_Wheel")
 wheel_rear_left = NodePath("Rear_Left_Wheel")
 wheel_rear_right = NodePath("Rear_Right_Wheel")
-drift_grip = 0.0
+camera = NodePath("SpringArm3D")
+drift_grip = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=277272717]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 0.8676758, -0.061701655)
