@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1x0ivhq0p04y" path="res://assets/FREE_Car/car-04a_Tire_Normal.png" id="5_kc0lg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3jou"]
-size = Vector3(1.52, 0.89, 3.997)
+size = Vector3(1.52, 0.5913623, 3.997)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vmnx3"]
 
@@ -1176,18 +1176,18 @@ shadow_mesh = SubResource("ArrayMesh_ox0mt")
 mass = 900.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.5, 0)
-torque = 5000
+torque = 6000
 max_RPM = 2000
-turn_speed = 5.0
+turn_speed = 10.0
 wheel_traction_left = NodePath("Front_Left_Wheel")
 wheel_traction_right = NodePath("Front_Right_Wheel")
 wheel_rear_left = NodePath("Rear_Left_Wheel")
 wheel_rear_right = NodePath("Rear_Right_Wheel")
 camera = NodePath("SpringArm3D")
-drift_grip = 5.0
+drift_grip = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=277272717]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 0.8676758, -0.061701655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 0.29541087, -0.061701655)
 shape = SubResource("BoxShape3D_y3jou")
 
 [node name="SpringArm3D" parent="." index="1" unique_id=1091477968]
@@ -1245,7 +1245,8 @@ wheel_roll_influence = 1.0
 wheel_radius = 0.52
 wheel_friction_slip = 2.0
 suspension_travel = 0.1
-suspension_stiffness = 75.0
+suspension_stiffness = 100.0
+suspension_max_force = 60000.0
 
 [node name="Car_04_Wheel_FL" type="MeshInstance3D" parent="Front_Left_Wheel" index="0" unique_id=582929024]
 mesh = SubResource("ArrayMesh_232uk")
@@ -1258,7 +1259,8 @@ wheel_roll_influence = 1.0
 wheel_radius = 0.52
 wheel_friction_slip = 2.0
 suspension_travel = 0.1
-suspension_stiffness = 75.0
+suspension_stiffness = 100.0
+suspension_max_force = 60000.0
 
 [node name="Car_04_Wheel_FR" type="MeshInstance3D" parent="Front_Right_Wheel" index="0" unique_id=1659968560]
 mesh = SubResource("ArrayMesh_7bl4o")
@@ -1269,7 +1271,8 @@ wheel_roll_influence = 1.0
 wheel_radius = 0.52
 wheel_friction_slip = 1.9
 suspension_travel = 0.1
-suspension_stiffness = 75.0
+suspension_stiffness = 100.0
+suspension_max_force = 60000.0
 
 [node name="Car_04_Wheel_RL" type="MeshInstance3D" parent="Rear_Left_Wheel" index="0" unique_id=1193163958]
 mesh = SubResource("ArrayMesh_xj2da")
@@ -1280,7 +1283,8 @@ wheel_roll_influence = 1.0
 wheel_radius = 0.52
 wheel_friction_slip = 1.9
 suspension_travel = 0.1
-suspension_stiffness = 75.0
+suspension_stiffness = 100.0
+suspension_max_force = 60000.0
 
 [node name="Car_04_Wheel_RR" type="MeshInstance3D" parent="Rear_Right_Wheel" index="0" unique_id=1091054577]
 mesh = SubResource("ArrayMesh_6400j")

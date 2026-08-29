@@ -24,37 +24,43 @@ var _velocimetro_time = velocimetro_time
 var grip
 
 var is_drifting := false
-
+var brake_force
 func _ready() -> void:
     for child in get_children():
         if child is VehicleWheel3D:
             child.suspension_travel = suspension_travel
 
+func _process(delta: float) -> void:
+    brake_force = Input.get_action_strength('L2_button')
+    # print(brake_force)
+
 
 func _physics_process(delta: float) -> void:
-    var dir := Input.get_action_strength('R2_button') 
-    # var dir := Input.get_action_strength('R2_button') - Input.get_action_strength('L2_button')
+    # var dir := Input.get_action_strength('R2_button') 
+    var dir := Input.get_action_strength('R2_button') - Input.get_action_strength('L2_button')*0.5
     var steering_dir := Input.get_action_strength('left') - Input.get_action_strength('right')
 
     var RPM_left := wheel_traction_left.get_rpm()
     var RPM_right := wheel_traction_right.get_rpm()
     var RPM = (RPM_left + RPM_right / 2)
+    # var brake_force = Input.get_action_strength('L2_button')
 
     engine_force = dir * torque * (1.0 - RPM / max_RPM)
-    steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
-
+    # steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
 
     #no acelerando
     if dir == 0:
         brake = 3
+    else:
+        brake = 0
 
     #brake
     if Input.is_action_pressed('L2_button'):
-        var brake_force = Input.get_action_strength('L2_button')
-        brake = lerp(brake, brake_force * 10, 1 * delta)
+        brake = lerp(brake, brake_force * 1, 10 * delta)
         is_drifting = true
     else:
         is_drifting = false
+        # brake = 0
         # print(brake)
 
     # Lateral velocity
@@ -64,13 +70,19 @@ func _physics_process(delta: float) -> void:
     
 
     if is_drifting:
-        grip = drift_grip
-        wheel_rear_left.wheel_friction_slip = 1.5
-        wheel_rear_right.wheel_friction_slip = 1.5
+        grip = drift_grip * brake_force
+        wheel_rear_left.wheel_friction_slip = 1.4
+        wheel_rear_right.wheel_friction_slip = 1.4
+        steering = lerp(steering, steering_dir * turn_amount *brake_force * 2.0, turn_speed * delta)
+
+
+        
     else:
         grip = normal_grip
-        wheel_rear_left.wheel_friction_slip = 1.9
-        wheel_rear_right.wheel_friction_slip = 1.9
+        steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
+
+        wheel_rear_left.wheel_friction_slip = 2
+        wheel_rear_right.wheel_friction_slip = 2
 
     apply_central_force(
         - right * lateral_speed * grip * mass
@@ -81,7 +93,9 @@ func _physics_process(delta: float) -> void:
     _velocimetro_time -= delta
     if _velocimetro_time < 0:
         _velocimetro_time = velocimetro_time
-        print(engine_force)
+        print(linear_velocity.dot(global_transform.basis.z) *3.6)
+        # print(rad_to_deg(steering))
+        # print(brake_force)
 
 
     #camera lerp

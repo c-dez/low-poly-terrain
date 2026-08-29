@@ -91,33 +91,14 @@ script = ExtResource("2_nkae4")
 use_lowpoly_preview = true
 
 [node name="RP_001" type="Node3D" parent="RoadManager/Road_001" unique_id=636894184]
-transform = Transform3D(-0.9121772, 0.009214532, 0.40969238, 0, 0.99974716, -0.022485655, -0.409796, -0.020510903, -0.9119466, 1.6781197, 0.26213264, 0.39138174)
+transform = Transform3D(-0.9121772, 0.009214532, 0.40969238, 0, 0.99974716, -0.022485655, -0.409796, -0.020510903, -0.9119466, -6.139553, 0.26213264, -16.03742)
 script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
-next_mag = 16.0
-prior_pt_init = NodePath("../RP_002")
-next_pt_init = NodePath("../RP_021")
-
-[node name="RP_002" type="Node3D" parent="RoadManager/Road_001" unique_id=392360833]
-transform = Transform3D(-0.9121773, 5.097188e-09, 0.40979576, 5.5879354e-09, 1, 0, -0.40979576, 2.2899123e-09, -0.9121773, -2.8768864, 0.27191162, 10.530509)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 16.0
+prior_mag = 14.699385
 next_mag = 16.0
 prior_pt_init = NodePath("../RP_003")
-next_pt_init = NodePath("../RP_001")
-
-[node name="RP_003" type="Node3D" parent="RoadManager/Road_001" unique_id=1167793409]
-transform = Transform3D(-0.6367896, 9.425938e-10, -0.77103764, 1.4802279e-09, 1, 0, 0.77103764, -1.1413115e-09, -0.6367896, 1.289135, -0.5, 33.981125)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 16.0
-next_mag = 16.0
-prior_pt_init = NodePath("../RP_004")
-next_pt_init = NodePath("../RP_002")
+next_pt_init = NodePath("../RP_021")
 
 [node name="RP_004" type="Node3D" parent="RoadManager/Road_001" unique_id=1751930619]
 transform = Transform3D(0.762603, -1.4833938e-11, -0.64686686, 1.9451718e-11, 1, 0, 0.64686686, -1.2582672e-11, 0.762603, 30.322126, -0.5, 24.486086)
@@ -290,7 +271,7 @@ prior_pt_init = NodePath("../RP_021")
 next_pt_init = NodePath("../RP_019")
 
 [node name="RP_021" type="Node3D" parent="RoadManager/Road_001" unique_id=1833815097]
-transform = Transform3D(-0.9599705, 6.7745257e-18, -0.2801014, 7.0570145e-18, 1, 0, 0.2801014, -1.9766796e-18, -0.9599705, 27.388126, 1.0145111, -25.533709)
+transform = Transform3D(-0.9625253, 6.792555e-18, 0.27119178, 7.0570145e-18, 1, 0, -0.27119178, 1.9138044e-18, -0.9625253, 53.47211, 1.0145111, -25.533709)
 script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
@@ -299,7 +280,59 @@ next_mag = 16.0
 prior_pt_init = NodePath("../RP_001")
 next_pt_init = NodePath("../RP_020")
 
+[node name="RP_003" type="Node3D" parent="RoadManager/Road_001" unique_id=1167793409]
+transform = Transform3D(-0.6941553, 1.027508e-09, -0.7198253, 1.4802279e-09, 1, 0, 0.7198253, -1.0655057e-09, -0.6941553, 1.289135, -0.04948616, 44.523087)
+script = ExtResource("3_jy51n")
+traffic_dir = Array[int]([2, 2, 1, 1])
+lanes = Array[int]([2, 4, 4, 2])
+prior_mag = 16.0
+next_mag = 20.938591
+prior_pt_init = NodePath("../RP_004")
+next_pt_init = NodePath("../RP_001")
+
 [node name="myCar" parent="." unique_id=1270817925 instance=ExtResource("4_nkae4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5683918, 0)
-turn_amount = 0.2
-drift_grip = 1.0
+mass = 500.0
+torque = 3000
+turn_speed = 3.0
+turn_amount = 0.3
+normal_grip = 10.0
+drift_grip = 5.0
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=925506243]
+use_collision = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1469760340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 13.895, 0)
+radius = 4.93
+height = 27.79
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1393964097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9126587, 13.895, -75.96306)
+radius = 4.93
+height = 27.79
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=863206189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.23651, 13.895, 20.176895)
+radius = 4.93
+height = 27.79
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=2139065089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.28443, 13.895, 262.54156)
+radius = 4.93
+height = 27.79
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1905484215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.28443, 13.895, 110.47165)
+radius = 4.93
+height = 27.79
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=912321383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.51421, 13.895, 110.47165)
+radius = 4.93
+height = 27.79
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=757395878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.52938, 13.895, 276.76315)
+radius = 4.93
+height = 27.79
