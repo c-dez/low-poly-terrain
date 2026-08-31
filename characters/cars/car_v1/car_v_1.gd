@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 
     #brake
     if Input.is_action_pressed('L2_button'):
-        brake = lerp(brake, brake_strength * 0.5, 0.5 * delta)
+        brake = lerp(brake, brake_strength * 10, 10 * delta)
         is_drifting = true
     else:
         is_drifting = false
@@ -121,7 +121,7 @@ func debug_label(text, delta: float) -> void:
         # var text = lateral_speed
         label.text = str(
 
-            int(text)
+            int(_speed)
 
             )
 
