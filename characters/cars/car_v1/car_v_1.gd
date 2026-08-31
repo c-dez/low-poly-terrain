@@ -53,28 +53,38 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+    car_handling(delta)
+    # QUE QUIERO LOGRAR:?
+    #el manejo de el carro hasta ahora cumple con los minimos
+    # pero requiere darle sabor 
+    # agregar visuales
+    # inclinar el modelo de el carro a derrapar
+    # inclinar camera
+    # particulas al derrapar / sonido
+
+
+func car_handling(delta: float) -> void:
     # var dir := Input.get_action_strength('R2_button') 
     var dir := Input.get_action_strength('R2_button') - (Input.get_action_strength('L2_button') * 0.3)
     var steering_dir := Input.get_action_strength('left') - Input.get_action_strength('right')
 
-    # var RPM_left := wheel_front_left.get_rpm()
-    # var RPM_right := wheel_front_right.get_rpm()
     var RPM_left := traction_wheel_left.get_rpm()
     var RPM_right := traction_wheel_right.get_rpm()
-    var RPM = (RPM_left + RPM_right / 2)
+    var RPM := (RPM_left + RPM_right / 2)
 
     engine_force = dir * torque * (1.0 - RPM / max_RPM)
     # steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
 
     #no acelerando
     if dir == 0:
-        brake = 3
+        brake = 4
         pass
     else:
         brake = 0
 
     #brake
     if Input.is_action_pressed('L2_button'):
+        # magic numbers
         brake = lerp(brake, brake_strength * 10, 10 * delta)
         is_drifting = true
     else:
@@ -99,12 +109,14 @@ func _physics_process(delta: float) -> void:
     apply_central_force(
         - right * lateral_speed * grip * mass
     )
+
+   #DEBUG 
     debug_label(lateral_speed, delta)
+    
 
-
-func camera_toggle():
-    var d1 = 0.0
-    var d2 = -5.0
+func camera_toggle() -> void:
+    var d1 := 0.0
+    var d2 := -5.0
     if Input.is_action_just_pressed('a_button'):
         if camera.spring_length == d1:
             camera.spring_length = d2
@@ -129,7 +141,7 @@ func set_traction() -> void:
     match traction:
         TRACTION.front:
             wheel_front_left.use_as_traction = true
-            wheel_front_right.use_as_traction = true 
+            wheel_front_right.use_as_traction = true
             wheel_rear_left.use_as_traction = false
             wheel_rear_right.use_as_traction = false
 
@@ -138,7 +150,7 @@ func set_traction() -> void:
             pass
         TRACTION.rear:
             wheel_front_left.use_as_traction = false
-            wheel_front_right.use_as_traction = false 
+            wheel_front_right.use_as_traction = false
             wheel_rear_left.use_as_traction = true
             wheel_rear_right.use_as_traction = true
 
