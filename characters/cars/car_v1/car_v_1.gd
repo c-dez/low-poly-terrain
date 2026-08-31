@@ -62,6 +62,41 @@ func _physics_process(delta: float) -> void:
     # inclinar camera
     # particulas al derrapar / sonido
 
+    # car_04
+    # que rote en y y z al drift
+    var right = global_transform.basis.x
+
+    var lateral_speed = linear_velocity.dot(right)
+    var car: MeshInstance3D = $Car_04
+    var max_lateral_speed := 10.0
+    var max_rotation_y := 20.0
+    var rotation_smooth := 5.0
+    var lateral_factor = clamp(
+    lateral_speed / max_lateral_speed,
+    -1.0,
+    1.0
+    )
+    var target_rotation = -deg_to_rad(max_rotation_y) * lateral_factor
+    if is_drifting:
+       # lateral_speed entre 1 y -1
+
+       # Calcular rotacion objetivo
+
+       # suavizar rotacion
+       car.rotation.y = lerp(
+        car.rotation.y,
+        target_rotation,
+        rotation_smooth * delta
+       )
+    else:
+        car.rotation.y = lerp(
+        car.rotation.y,
+        0.0,
+        rotation_smooth * delta
+        )
+
+    # rote en x acelerar frenar
+
 
 func car_handling(delta: float) -> void:
     # var dir := Input.get_action_strength('R2_button') 
