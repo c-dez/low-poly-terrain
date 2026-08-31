@@ -82,8 +82,8 @@ func _physics_process(delta: float) -> void:
 
     if is_drifting:
         grip = drift_grip
-        wheel_rear_left.wheel_friction_slip = 1.4
-        wheel_rear_right.wheel_friction_slip = 1.4
+        wheel_rear_left.wheel_friction_slip = 1
+        wheel_rear_right.wheel_friction_slip = 1
         steering = lerp(steering, steering_dir * turn_amount * brake_strength * 1.2, turn_speed * delta)
     else:
         grip = normal_grip
