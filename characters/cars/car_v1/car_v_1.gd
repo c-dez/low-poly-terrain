@@ -47,7 +47,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
     brake_strength = Input.get_action_strength('L2_button')
-    # print(brake_strength)
 
     camera_toggle()
 
@@ -69,18 +68,19 @@ func _physics_process(delta: float) -> void:
     var lateral_speed = linear_velocity.dot(right)
     var car: MeshInstance3D = $Car_04
     var max_lateral_speed := 10.0
-    var max_rotation_y := 20.0
-    var rotation_smooth := 5.0
+    var max_rotation_y := 50.0
+    var rotation_smooth := 10.0
+       # lateral_speed entre 1 y -1
     var lateral_factor = clamp(
     lateral_speed / max_lateral_speed,
     -1.0,
     1.0
     )
+    # Calcular rotacion objetivo
     var target_rotation = -deg_to_rad(max_rotation_y) * lateral_factor
+    
     if is_drifting:
-       # lateral_speed entre 1 y -1
 
-       # Calcular rotacion objetivo
 
        # suavizar rotacion
        car.rotation.y = lerp(
@@ -92,7 +92,7 @@ func _physics_process(delta: float) -> void:
         car.rotation.y = lerp(
         car.rotation.y,
         0.0,
-        rotation_smooth * delta
+        1.0 * delta
         )
 
     # rote en x acelerar frenar
@@ -125,11 +125,13 @@ func car_handling(delta: float) -> void:
     else:
         is_drifting = false
 
+        
+    #IS DRIFTING ---------------------------------------
     if is_drifting:
         grip = drift_grip
-        wheel_rear_left.wheel_friction_slip = 1
-        wheel_rear_right.wheel_friction_slip = 1
-        steering = lerp(steering, steering_dir * turn_amount * brake_strength * 1.2, turn_speed * delta)
+        # wheel_rear_left.wheel_friction_slip = 1.5
+        # wheel_rear_right.wheel_friction_slip = 1.5
+        steering = lerp(steering, steering_dir * turn_amount * brake_strength * 1.5, turn_speed * delta)
     else:
         grip = normal_grip
         steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
