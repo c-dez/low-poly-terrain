@@ -9,6 +9,10 @@ var rotation_smooth: float = 10.0
 
 
 func _physics_process(delta: float) -> void:
+    rotate_mesh_y(delta)
+    
+
+func rotate_mesh_y(delta:float) ->void:
     var right: Vector3 = owner.global_transform.basis.x
     var lateral_speed = owner.linear_velocity.dot(right)
 
