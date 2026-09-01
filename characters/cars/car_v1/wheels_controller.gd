@@ -1,4 +1,4 @@
-extends Node3D
+extends Node
 
 # rota y gira meshes de ruedas
 @export var fl_wheel:MeshInstance3D

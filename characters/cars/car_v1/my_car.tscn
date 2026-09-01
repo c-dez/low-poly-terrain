@@ -1296,7 +1296,7 @@ suspension_max_force = 60000.0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="WheelsController" type="Node3D" parent="." index="8" unique_id=2007477900 node_paths=PackedStringArray("fl_wheel", "fr_wheel", "rl_wheel", "rr_wheel")]
+[node name="WheelsController" type="Node" parent="." index="8" unique_id=334407682 node_paths=PackedStringArray("fl_wheel", "fr_wheel", "rl_wheel", "rr_wheel")]
 script = ExtResource("6_s58lm")
 fl_wheel = NodePath("../Car_04/Car_04_Wheel_FL")
 fr_wheel = NodePath("../Car_04/Car_04_Wheel_FR")
