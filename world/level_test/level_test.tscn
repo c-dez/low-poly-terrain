@@ -114,6 +114,7 @@ mass = 500.0
 torque = 5000
 turn_speed = 2.5
 normal_grip = 5.0
+drift_grip = 2.0
 
 [node name="Terrain3D" type="Terrain3D" parent="." unique_id=992691061]
 data_directory = "res://terrain_data"

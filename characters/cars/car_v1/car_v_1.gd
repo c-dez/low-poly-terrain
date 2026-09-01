@@ -1,10 +1,10 @@
 extends VehicleBody3D
 
 
-@export var torque: int = 3500
+@export var torque: int = 5000
 ## Smooth speed changes
-@export var max_RPM: int = 1500
-@export var turn_speed: float = 3.0
+@export var max_RPM: int = 2000
+@export var turn_speed: float = 2.5
 @export var turn_amount: float = 0.3
 @export var wheel_front_left: VehicleWheel3D
 @export var wheel_front_right: VehicleWheel3D
@@ -22,8 +22,8 @@ var velocimetro_time := 0.5
 var _velocimetro_time = velocimetro_time
 
 # drifting
-@export var normal_grip := 15.0
-@export var drift_grip := 15.0
+@export var normal_grip := 5.0
+@export var drift_grip := 2.0
 var grip
 
 var is_drifting := false

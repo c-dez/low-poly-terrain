@@ -1193,7 +1193,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 0.29541087, -0
 shape = SubResource("BoxShape3D_y3jou")
 
 [node name="SpringArm3D" parent="." index="1" unique_id=1091477968]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 2.9126625, 0)
+transform = Transform3D(0.99999994, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 2.9126625, 0)
 collision_mask = 0
 shape = SubResource("SphereShape3D_vmnx3")
 spring_length = -5.0
@@ -1297,7 +1297,9 @@ suspension_max_force = 60000.0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="WheelsController" type="Node3D" parent="." index="8" unique_id=2007477900 node_paths=PackedStringArray("fl_wheel", "fr_wheel")]
+[node name="WheelsController" type="Node3D" parent="." index="8" unique_id=2007477900 node_paths=PackedStringArray("fl_wheel", "fr_wheel", "rl_wheel", "rr_wheel")]
 script = ExtResource("6_s58lm")
 fl_wheel = NodePath("../Car_04/Car_04_Wheel_FL")
 fr_wheel = NodePath("../Car_04/Car_04_Wheel_FR")
+rl_wheel = NodePath("../Car_04/Car_04_Wheel_RL")
+rr_wheel = NodePath("../Car_04/Car_04_Wheel_RR")
