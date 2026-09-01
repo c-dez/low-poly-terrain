@@ -1178,7 +1178,6 @@ mass = 900.0
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, -0.5, 0)
 torque = 6000
-max_RPM = 2000
 turn_speed = 10.0
 wheel_front_left = NodePath("Front_Left_Wheel")
 wheel_front_right = NodePath("Front_Right_Wheel")
@@ -1303,3 +1302,5 @@ fl_wheel = NodePath("../Car_04/Car_04_Wheel_FL")
 fr_wheel = NodePath("../Car_04/Car_04_Wheel_FR")
 rl_wheel = NodePath("../Car_04/Car_04_Wheel_RL")
 rr_wheel = NodePath("../Car_04/Car_04_Wheel_RR")
+
+[node name="MeshModelController" type="Node" parent="." index="9" unique_id=1249469926]
