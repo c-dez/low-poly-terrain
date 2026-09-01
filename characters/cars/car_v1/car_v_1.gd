@@ -64,44 +64,6 @@ func _physics_process(delta: float) -> void:
     # car_04
     # que rote en y y z al drift
 
-# ----------------------
-    # var car: MeshInstance3D = $Car_04
-
-    # var right:Vector3 = global_transform.basis.x
-
-    # var lateral_speed = linear_velocity.dot(right)
-    
-    # var max_lateral_speed := 10.0
-    # var max_rotation_y := 50.0
-    # var rotation_smooth := 10.0
-
-    #    # lateral_speed entre 1 y -1
-    # var lateral_factor = clamp(
-    # lateral_speed / max_lateral_speed,
-    # -1.0,
-    # 1.0
-    # )
-    
-    # # Calcular rotacion objetivo
-    # var target_rotation = -deg_to_rad(max_rotation_y) * lateral_factor
-
-
-    
-    # if is_drifting:
-
-
-    #    # suavizar rotacion
-    #    car.rotation.y = lerp(
-    #     car.rotation.y,
-    #     target_rotation,
-    #     rotation_smooth * delta
-    #    )
-    # else:
-    #     car.rotation.y = lerp(
-    #     car.rotation.y,
-    #     0.0,
-    #     1.0 * delta
-    #     )
 
     # rote en x acelerar frenar
 
