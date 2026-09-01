@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfmm7ac50t166" path="res://assets/FREE_Car/car-04a_Tire_Color.png" id="4_clugq"]
 [ext_resource type="Texture2D" uid="uid://c1x0ivhq0p04y" path="res://assets/FREE_Car/car-04a_Tire_Normal.png" id="5_kc0lg"]
 [ext_resource type="Script" uid="uid://dba1uwjoeo2t3" path="res://characters/cars/car_v1/wheels_controller.gd" id="6_s58lm"]
+[ext_resource type="Script" uid="uid://cylcl15se30kp" path="res://characters/cars/car_v1/mesh_model_controller.gd" id="7_clugq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3jou"]
 size = Vector3(1.52, 0.5913623, 3.997)
@@ -1303,4 +1304,6 @@ fr_wheel = NodePath("../Car_04/Car_04_Wheel_FR")
 rl_wheel = NodePath("../Car_04/Car_04_Wheel_RL")
 rr_wheel = NodePath("../Car_04/Car_04_Wheel_RR")
 
-[node name="MeshModelController" type="Node" parent="." index="9" unique_id=1249469926]
+[node name="MeshModelController" type="Node" parent="." index="9" unique_id=1249469926 node_paths=PackedStringArray("car")]
+script = ExtResource("7_clugq")
+car = NodePath("../Car_04")
