@@ -1,13 +1,22 @@
 [gd_scene format=3 uid="uid://c0qjaw01rg1y5"]
 
+[ext_resource type="Script" uid="uid://b3a8ptw1sfkt2" path="res://characters/cars/car_v4/car_v_4.gd" id="1_12v1u"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_y3jou"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_my12w"]
 
 [node name="CarV4" type="CharacterBody3D" unique_id=1717532777]
+script = ExtResource("1_12v1u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1264778456]
 mesh = SubResource("SphereMesh_y3jou")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1833289243]
 shape = SubResource("SphereShape3D_my12w")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=2005990163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46959648, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1590132468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.909093)
