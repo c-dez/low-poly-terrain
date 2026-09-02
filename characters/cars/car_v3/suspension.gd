@@ -1,5 +1,4 @@
-extends RigidBody3D
-class_name CarV3
+extends Node3D
 
 @export var suspension_lenght: float = 0.8
 @export var spring_strength: float = 10.0
@@ -80,7 +79,7 @@ func apply_suspension(
     )
 
     # Aplicar fuerza
-    apply_force(
+    owner.apply_force(
         Vector3.UP * suspension_force,
         force_position
     )
