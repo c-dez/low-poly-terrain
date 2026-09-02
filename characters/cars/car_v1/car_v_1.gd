@@ -53,24 +53,9 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
     car_handling(delta)
-    # QUE QUIERO LOGRAR:?
-    #el manejo de el carro hasta ahora cumple con los minimos
-    # pero requiere darle sabor 
-    # agregar visuales
-    # inclinar el modelo de el carro a derrapar
-    # inclinar camera
-    # particulas al derrapar / sonido
-
-    # car_04
-    # que rote en y y z al drift
-
-
-    # rote en x acelerar frenar
-
-# ----------------------
+  
 
 func car_handling(delta: float) -> void:
-    # var dir := Input.get_action_strength('R2_button') 
     var dir := Input.get_action_strength('R2_button') - (Input.get_action_strength('L2_button') * 0.3)
     var steering_dir := Input.get_action_strength('left') - Input.get_action_strength('right')
 
@@ -79,7 +64,6 @@ func car_handling(delta: float) -> void:
     var RPM := (RPM_left + RPM_right / 2)
 
     engine_force = dir * torque * (1.0 - RPM / max_RPM)
-    # steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
 
     #no acelerando
     if dir == 0:
@@ -107,8 +91,8 @@ func car_handling(delta: float) -> void:
         grip = normal_grip
         steering = lerp(steering, steering_dir * turn_amount, turn_speed * delta)
 
-        wheel_rear_left.wheel_friction_slip = 2
-        wheel_rear_right.wheel_friction_slip = 2
+        # wheel_rear_left.wheel_friction_slip = 2
+        # wheel_rear_right.wheel_friction_slip = 2
 
     # Lateral velocity
     var right := global_transform.basis.x
@@ -131,6 +115,7 @@ func camera_toggle() -> void:
         else:
             camera.spring_length = d1
 
+
 func debug_label(text, delta: float) -> void:
     _velocimetro_time -= delta
     if _velocimetro_time < 0:
@@ -144,6 +129,7 @@ func debug_label(text, delta: float) -> void:
             int(_speed)
 
             )
+
 
 func set_traction() -> void:
     match traction:

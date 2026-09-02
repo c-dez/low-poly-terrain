@@ -7,12 +7,30 @@ extends Node
 @export var max_y_rotation: float = 50.0
 var rotation_smooth: float = 10.0
 
+var max_x_rotation: float = 4.0
 
+    
 func _physics_process(delta: float) -> void:
     rotate_mesh_y(delta)
-    
+    brake_animation(delta)
 
-func rotate_mesh_y(delta:float) ->void:
+## rota el mesh en x para simular inercia al frenar
+func brake_animation(delta: float) -> void:
+    if owner.is_drifting:
+        car.rotation.x = lerp(
+            car.rotation.x,
+            deg_to_rad(max_x_rotation),
+            rotation_smooth * delta
+        )
+    else:
+        car.rotation.x = lerp(
+            car.rotation.x,
+            0.0,
+            5 * delta
+        )
+
+    
+func rotate_mesh_y(delta: float) -> void:
     var right: Vector3 = owner.global_transform.basis.x
     var lateral_speed = owner.linear_velocity.dot(right)
 
@@ -23,7 +41,7 @@ func rotate_mesh_y(delta:float) ->void:
     )
 
     # calcular rotacion objetivo
-    var target_rotation: float = -deg_to_rad(max_y_rotation) * lateral_factor
+    var target_rotation: float = - deg_to_rad(max_y_rotation) * lateral_factor
 
     if owner.is_drifting:
         # suavizar rotacion

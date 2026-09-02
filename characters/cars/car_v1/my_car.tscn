@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://cylcl15se30kp" path="res://characters/cars/car_v1/mesh_model_controller.gd" id="7_clugq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y3jou"]
-size = Vector3(1.52, 0.5913623, 3.997)
+size = Vector3(1.52, 1, 3.717)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vmnx3"]
 
@@ -1189,7 +1189,7 @@ normal_grip = 1.0
 drift_grip = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0" unique_id=277272717]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 0.29541087, -0.061701655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76131374, 0)
 shape = SubResource("BoxShape3D_y3jou")
 
 [node name="SpringArm3D" parent="." index="1" unique_id=1091477968]

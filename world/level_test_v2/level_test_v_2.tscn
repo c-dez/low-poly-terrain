@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bxw8phc46f0xi"]
+
+[ext_resource type="PackedScene" uid="uid://3e34silbsbvv" path="res://characters/cars/car_v3/car_v_3.tscn" id="1_oy1ty"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oy1ty"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_cugvs"]
+sky_material = SubResource("ProceduralSkyMaterial_oy1ty")
+
+[sub_resource type="Environment" id="Environment_u2aiv"]
+background_mode = 2
+sky = SubResource("Sky_cugvs")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3jou"]
+albedo_color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+
+[node name="LevelTestV2" type="Node3D" unique_id=35288346]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1572211855]
+environment = SubResource("Environment_u2aiv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=330252816]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1716418846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=613573392]
+size = Vector3(100, 1, 100)
+material = SubResource("StandardMaterial3D_y3jou")
+
+[node name="CarV3" parent="." unique_id=23891457 instance=ExtResource("1_oy1ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.000397, 0)

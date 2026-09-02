@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://3e34silbsbvv"]
+
+[ext_resource type="Script" uid="uid://ygbn8bl3gblb" path="res://characters/cars/car_v3/car_v_3.gd" id="1_p2kfh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_y3jou"]
+size = Vector3(2, 1, 4.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p2kfh"]
+size = Vector3(2, 1, 4.5)
+
+[node name="CarV3" type="RigidBody3D" unique_id=23891457]
+script = ExtResource("1_p2kfh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2055060438]
+mesh = SubResource("BoxMesh_y3jou")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1811319972]
+shape = SubResource("BoxShape3D_p2kfh")
+
+[node name="FLRay" type="RayCast3D" parent="." unique_id=1349232941]
+unique_name_in_owner = true
+transform = Transform3D(0.9999619, 0, -0.008726535, 0, 1, 0, 0.008726535, 0, 0.9999619, -1, -0.5, -2)
+
+[node name="FRRay" type="RayCast3D" parent="." unique_id=812621844]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -2)
+
+[node name="RLRay" type="RayCast3D" parent="." unique_id=904194963]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, 2)
+
+[node name="RRRay" type="RayCast3D" parent="." unique_id=1709732999]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 2)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1437104579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8983121, 5.8263335)
+current = true
