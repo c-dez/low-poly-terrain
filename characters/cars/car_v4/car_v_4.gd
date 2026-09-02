@@ -73,6 +73,7 @@ extends CharacterBody3D
 @export var acceleration: float = 10.0
 @export var max_speed: float = 20.0
 @export var steering_speed: float = 2.5
+@export var grip :float = 5.0
 
 
 func _physics_process(delta: float) -> void:
@@ -91,7 +92,14 @@ func _physics_process(delta: float) -> void:
         # velocity.y = 0.0
         velocity.y -= 10.0 * delta
 
+
+    # body direcctions
     var forward := - global_transform.basis.z
+    var right := global_transform.basis.x
+    # direction speeds
+    var forward_speed := velocity.dot(forward)
+    var lateral_speed := velocity.dot(right)
+
     var input := Input.get_axis('L2_button', 'R2_button')
 
     velocity += forward * input * 10.0 * delta
@@ -111,8 +119,18 @@ func _physics_process(delta: float) -> void:
 
     # direction
 
-    
+    var steering := Input.get_axis(
+        'left',
+        'right'
+    )
 
+    if horizontal_velocity.length() > 0.1:
+        rotate_y( - steering * steering_speed * delta)
+
+    # grip lateral
+
+    var lateral_velocity := right * lateral_speed
+    velocity -= lateral_velocity * grip * delta
 
 
     move_and_slide()
