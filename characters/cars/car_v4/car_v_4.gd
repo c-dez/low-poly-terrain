@@ -76,6 +76,8 @@ extends CharacterBody3D
 
 
 func _physics_process(delta: float) -> void:
+
+    #HOVER ---------
     if ray.is_colliding():
         var hit_point := ray.get_collision_point()
 
@@ -93,5 +95,24 @@ func _physics_process(delta: float) -> void:
     var input := Input.get_axis('L2_button', 'R2_button')
 
     velocity += forward * input * 10.0 * delta
+
+    # velocidad maxima
+    var horizontal_velocity := Vector3(
+        velocity.x,
+        0.0,
+        velocity.z
+    )
+    if horizontal_velocity.length() > max_speed:
+        horizontal_velocity = horizontal_velocity.normalized() * max_speed
+
+        velocity.x = horizontal_velocity.x
+        velocity.z = horizontal_velocity.z
+
+
+    # direction
+
+    
+
+
 
     move_and_slide()
