@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://3e34silbsbvv"]
 
-[ext_resource type="Script" uid="uid://d2o6ap8q47j74" path="res://characters/cars/car_v3/car_v_3.gd" id="1_p2kfh"]
 [ext_resource type="Script" uid="uid://ygbn8bl3gblb" path="res://characters/cars/car_v3/suspension.gd" id="2_36l2n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_y3jou"]
@@ -10,17 +9,12 @@ size = Vector3(2, 1, 4.5)
 size = Vector3(2, 1, 4.5)
 
 [node name="CarV3" type="RigidBody3D" unique_id=23891457]
-script = ExtResource("1_p2kfh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2055060438]
 mesh = SubResource("BoxMesh_y3jou")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1811319972]
 shape = SubResource("BoxShape3D_p2kfh")
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1437104579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8983121, 5.8263335)
-current = true
 
 [node name="Suspension" type="Node3D" parent="." unique_id=1665536432]
 script = ExtResource("2_36l2n")

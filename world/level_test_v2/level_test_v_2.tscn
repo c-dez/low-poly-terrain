@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bxw8phc46f0xi"]
 
 [ext_resource type="PackedScene" uid="uid://c0qjaw01rg1y5" path="res://characters/cars/car_v4/car_v_4.tscn" id="1_oy1ty"]
+[ext_resource type="PackedScene" uid="uid://3e34silbsbvv" path="res://characters/cars/car_v3/car_v_3.tscn" id="2_cugvs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_oy1ty"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -74,3 +75,6 @@ size = Vector3(7, 12, 9)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2642784, 0)
 drift_force = 15.0
 drift_steering_mult = 1.5
+
+[node name="CarV3" parent="." unique_id=23891457 instance=ExtResource("2_cugvs")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 9.430124, -15.80072)

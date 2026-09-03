@@ -14,8 +14,18 @@ extends CharacterBody3D
 @export var drift_force : float = 5.0
 @export var drift_steering_mult : float = 1.3
 
+@onready var mesh :MeshInstance3D = $Mesh
 
+@export var fl_wheel:MeshInstance3D 
+@export var fr_wheel:MeshInstance3D
+
+
+func _ready() -> void:
+    # ray.add_exception(collision)
+    pass
 func _physics_process(delta: float) -> void:
+
+    
     # variables
     # body direcctions
     var forward := - global_transform.basis.z
@@ -77,8 +87,8 @@ func _physics_process(delta: float) -> void:
         if drifting:
             steering_mult = drift_steering_mult
 
-
-        rotate_y( - steering * steering_speed * steering_mult * delta)
+        var value := -steering * steering_speed * steering_mult * delta
+        rotate_y(value)
 
     # grip lateral
 
@@ -95,5 +105,71 @@ func _physics_process(delta: float) -> void:
     else:
         grip = 5.0
 
+    var camera:Camera3D = $Camera3D
+    var camera_forward:= - camera.global_transform.basis.z
+
+    var target_angle := atan2(
+        camera_forward.x,
+        camera_forward.z
+    )
+    # extra giro
+    if drifting and forward_speed > 20.0:
+        var drift_angle := deg_to_rad(40.0)
+
+        # izquierda/derecha
+        target_angle -= steering * drift_angle
+
+        mesh.global_rotation.y = lerp_angle(
+            mesh.global_rotation.y,
+            target_angle,
+            4 * delta
+        )
+
+        # rotar en x para simular frenado
+        mesh.rotation.x = deg_to_rad(5.0)
+        # camera.fov = 60
+        camera.fov = lerp(
+            camera.fov,
+            70.0, 
+            10.0 *delta
+        )
+        camera.position.z = lerp(
+            camera.position.z,
+            6.0,
+            10.0 * delta
+        )
+
+    else:
+        # camera.fov = 80
+        mesh.rotation.x = deg_to_rad(0.0)
+        camera.fov = lerp(
+            camera.fov,
+            85.0, 
+            1.0 *delta
+        )
+        camera.position.z = lerp(
+            camera.position.z,
+            8.0,
+            1.0 * delta
+        )
+
+   
+    mesh.global_rotation.y = lerp_angle(
+        mesh.global_rotation.y,
+        target_angle,
+        2 * delta
+    )
 
     move_and_slide()
+
+
+    #girar ruedas
+    fl_wheel.rotation.y = deg_to_rad(45) *- steering
+    fr_wheel.rotation.y = deg_to_rad(45) *- steering
+        
+
+func rotate_mesh(value):
+    # necesito angulo camara comparado con angulo body
+
+
+    pass
