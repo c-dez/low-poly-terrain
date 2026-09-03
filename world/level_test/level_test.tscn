@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ce1e74miegl2e" path="res://textures/grass.jpg" id="2_jy51n"]
 [ext_resource type="Script" uid="uid://cph7euje06kel" path="res://addons/road-generator/nodes/road_container.gd" id="2_nkae4"]
 [ext_resource type="Script" uid="uid://difs1qg4mpcpw" path="res://addons/road-generator/nodes/road_point.gd" id="3_jy51n"]
-[ext_resource type="PackedScene" uid="uid://d3y4uw8c6de6a" path="res://characters/cars/car_v1/my_car.tscn" id="4_nkae4"]
+[ext_resource type="PackedScene" uid="uid://c0qjaw01rg1y5" path="res://characters/cars/car_v4/car_v_4.tscn" id="6_sb4ee"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nkae4"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -117,14 +117,6 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1507213839]
 environment = SubResource("Environment_sb4ee")
-
-[node name="myCar" parent="." unique_id=1270817925 instance=ExtResource("4_nkae4")]
-transform = Transform3D(-0.13237664, 0, -0.9911995, 0, 1, 0, 0.9911995, 0, -0.13237664, -103.77254, 7.0826564, -493.92978)
-mass = 500.0
-torque = 5000
-turn_speed = 2.0
-normal_grip = 5.0
-drift_grip = 2.0
 
 [node name="RoadManager2" type="Node3D" parent="." unique_id=958654944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -178.50122, 0.1728859, 0)
@@ -1294,10 +1286,5 @@ collision_shape_size = 8
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1885503060]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5000019, 3.5)
-size = Vector3(1, 1, 8)
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=52878008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5000019, 3.5)
-use_collision = true
+[node name="CarV4" parent="." unique_id=1717532777 instance=ExtResource("6_sb4ee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.2309113, -68.05162)

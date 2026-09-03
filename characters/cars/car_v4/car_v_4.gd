@@ -1,68 +1,3 @@
-# extends CharacterBody3D
-
-
-# ## usando characterbody como punto de movimiento, la camara y hovers siguen a este
-# # aplico comportamiento de carro / drift etc desde cero
-# # hover, controlo su direccion y rotacion
-
-# @onready var ray: RayCast3D = $RayCast3D
-# @export var suspension_lenght: float = 0.8
-# @export var spring_strength: float = 10.0
-
-# @export var damper_strength: float = 5.0
-
-# var previous_compression: float = 0.0
-
-
-# func _physics_process(delta: float) -> void:
-#     if ray.is_colliding():
-#         var hit_point := ray.get_collision_point()
-
-#         var distance := ray.global_position.distance_to(hit_point)
-
-#         # compresion
-#         var compression := 1.0 - (
-#             distance / suspension_lenght
-#         )
-
-#         compression = clamp(
-#             compression,
-#             1.0,
-#             0.0
-#         )
-
-#         #fuerza resorte
-
-#         var spring_force := (
-#             compression * spring_strength
-#         )
-
-#         #velocidad de compresion
-#         var compression_velocity := (
-#             compression - previous_compression
-#         ) / delta
-
-#         # fuerza amortiguador
-
-#         var damper_force := (
-#             compression_velocity * damper_strength
-#         )
-
-#         #fuerza final
-
-#         var suspension_force := (
-#             spring_force + damper_force
-#         )
-
-#         # posicion relativa a body
-#         var force_position := (
-#             ray.global_position - global_position
-#         )
-
-#         #aplicar fuerza
-#         # elevar el body por encima de el suelo!
-        
-
 extends CharacterBody3D
 
 @onready var ray: RayCast3D = $RayCast3D
@@ -70,15 +5,37 @@ extends CharacterBody3D
 @export var hover_height: float = 0.8
 @export var hover_speed: float = 10.0
 @export_category('controls')
-@export var acceleration: float = 10.0
-@export var max_speed: float = 20.0
-@export var steering_speed: float = 2.5
+@export var acceleration: float = 50.0
+@export var max_speed: float = 100.0
+@export var steering_speed: float = 1.0
 @export var grip :float = 5.0
+@export_category('dift')
+@export var drift_grip : float = 1.0
+@export var drift_force : float = 5.0
+@export var drift_steering_mult : float = 1.3
 
 
 func _physics_process(delta: float) -> void:
+    # variables
+    # body direcctions
+    var forward := - global_transform.basis.z
+    var right := global_transform.basis.x
+    # direction speeds
+    var forward_speed := velocity.dot(forward)
+    var lateral_speed := velocity.dot(right)
+
+    #debug
+    var label :Label = $Label
+    label.text = str(int(forward_speed *3.6)/2)
+    # label.text = str(velocity.x)
+
+    var drifting := Input.is_action_pressed('L2_button')
+    # var drifting := Input.is_action_pressed('a_button')
+    # var input := Input.get_axis('L2_button', 'R2_button')
+    var input := Input.get_action_strength('R2_button')
 
     #HOVER ---------
+    
     if ray.is_colliding():
         var hit_point := ray.get_collision_point()
 
@@ -87,20 +44,11 @@ func _physics_process(delta: float) -> void:
         var error := hover_height - distance
 
         velocity.y = error * hover_speed
-
     else:
         # velocity.y = 0.0
         velocity.y -= 10.0 * delta
 
 
-    # body direcctions
-    var forward := - global_transform.basis.z
-    var right := global_transform.basis.x
-    # direction speeds
-    var forward_speed := velocity.dot(forward)
-    var lateral_speed := velocity.dot(right)
-
-    var input := Input.get_axis('L2_button', 'R2_button')
 
     velocity += forward * input * 10.0 * delta
 
@@ -117,7 +65,7 @@ func _physics_process(delta: float) -> void:
         velocity.z = horizontal_velocity.z
 
 
-    # direction
+    # steering
 
     var steering := Input.get_axis(
         'left',
@@ -125,12 +73,27 @@ func _physics_process(delta: float) -> void:
     )
 
     if horizontal_velocity.length() > 0.1:
-        rotate_y( - steering * steering_speed * delta)
+        var steering_mult := 1.0
+        if drifting:
+            steering_mult = drift_steering_mult
+
+
+        rotate_y( - steering * steering_speed * steering_mult * delta)
 
     # grip lateral
 
     var lateral_velocity := right * lateral_speed
     velocity -= lateral_velocity * grip * delta
+
+
+    # drifting
+   
+    if drifting and forward_speed > 20.0:
+        grip = drift_grip
+        velocity += (right * drift_force * delta )
+        print(right * drift_force * delta )
+    else:
+        grip = 5.0
 
 
     move_and_slide()

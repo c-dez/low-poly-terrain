@@ -19,4 +19,16 @@ shape = SubResource("SphereShape3D_my12w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.46959648, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1590132468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2.909093)
+transform = Transform3D(1, 0, 0, 0, 0.98634094, 0.16471657, 0, -0.16471657, 0.98634094, 0, 1.9352939, 2.909093)
+
+[node name="Label" type="Label" parent="." unique_id=1255210831]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -61.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 0
