@@ -1349,15 +1349,19 @@ mesh = SubResource("ArrayMesh_13yyq")
 mesh = SubResource("ArrayMesh_a0b3p")
 
 [node name="Car_04_Engine" type="MeshInstance3D" parent="Mesh/Car_04" unique_id=905197310]
+visible = false
 mesh = SubResource("ArrayMesh_80xtd")
 
 [node name="Car_04_FogLight" type="MeshInstance3D" parent="Mesh/Car_04" unique_id=1567409203]
+visible = false
 mesh = SubResource("ArrayMesh_w477i")
 
 [node name="Car_04_FrontBumper_Cool" type="MeshInstance3D" parent="Mesh/Car_04" unique_id=1757305613]
+visible = false
 mesh = SubResource("ArrayMesh_fm1h0")
 
 [node name="Car_04_Headlight_Cool" type="MeshInstance3D" parent="Mesh/Car_04" unique_id=1740958572]
+visible = false
 mesh = SubResource("ArrayMesh_o4732")
 
 [node name="Car_04_Headlight_Simple" type="MeshInstance3D" parent="Mesh/Car_04" unique_id=1156088359]
@@ -1376,9 +1380,11 @@ mesh = SubResource("ArrayMesh_rhw7m")
 mesh = SubResource("ArrayMesh_cen3t")
 
 [node name="Car_04_Spoiler" type="MeshInstance3D" parent="Mesh/Car_04" unique_id=1730439816]
+visible = false
 mesh = SubResource("ArrayMesh_ko64p")
 
 [node name="Car_04_Turbine" type="MeshInstance3D" parent="Mesh/Car_04" unique_id=1949614955]
+visible = false
 mesh = SubResource("ArrayMesh_1ws34")
 
 [node name="Car_04_Wheel_FL" type="MeshInstance3D" parent="Mesh/Car_04" unique_id=403248031]

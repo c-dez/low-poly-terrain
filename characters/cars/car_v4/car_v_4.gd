@@ -36,16 +36,21 @@ func _physics_process(delta: float) -> void:
 
     #debug
     var label :Label = $Label
-    label.text = str(int(forward_speed *3.6)/2)
-    # label.text = str(velocity.x)
+    var label_text = str(int(
+        # (forward_speed *3.6)/2  # forward km/h
+        lateral_speed  # lateral m/s
+
+    ))
+    label.text = label_text
 
     var drifting := Input.is_action_pressed('L2_button')
     # var drifting := Input.is_action_pressed('a_button')
-    # var input := Input.get_axis('L2_button', 'R2_button')
-    var input := Input.get_action_strength('R2_button')
+    var input := Input.get_axis('L2_button', 'R2_button')
+    # var input := Input.get_action_strength('R2_button')
 
     #HOVER ---------
     
+    # on floor
     if ray.is_colliding():
         var hit_point := ray.get_collision_point()
 
@@ -56,11 +61,11 @@ func _physics_process(delta: float) -> void:
         velocity.y = error * hover_speed
     else:
         # velocity.y = 0.0
-        velocity.y -= 10.0 * delta
+        velocity.y -= 20.0 * delta
 
 
-
-    velocity += forward * input * 10.0 * delta
+    var acceleration_mult:= 10.0
+    velocity += forward * input * acceleration_mult * delta
 
     # velocidad maxima
     var horizontal_velocity := Vector3(
@@ -95,16 +100,6 @@ func _physics_process(delta: float) -> void:
     var lateral_velocity := right * lateral_speed
     velocity -= lateral_velocity * grip * delta
 
-
-    # drifting
-   
-    if drifting and forward_speed > 20.0:
-        grip = drift_grip
-        velocity += (right * drift_force * delta )
-        print(right * drift_force * delta )
-    else:
-        grip = 5.0
-
     var camera:Camera3D = $Camera3D
     var camera_forward:= - camera.global_transform.basis.z
 
@@ -113,10 +108,16 @@ func _physics_process(delta: float) -> void:
         camera_forward.z
     )
     # extra giro
-    if drifting and forward_speed > 20.0:
-        var drift_angle := deg_to_rad(40.0)
+    if drifting and forward_speed > 10.0:
 
-        # izquierda/derecha
+        grip = drift_grip
+        velocity += (right * drift_force * delta )
+        # drift angle que dependa de lateral_speed
+        print(abs(lateral_speed))
+        var drift_angle := deg_to_rad(40.0)
+        
+
+        # rota el mesh en y para simular derrape
         target_angle -= steering * drift_angle
 
         mesh.global_rotation.y = lerp_angle(
@@ -127,7 +128,8 @@ func _physics_process(delta: float) -> void:
 
         # rotar en x para simular frenado
         mesh.rotation.x = deg_to_rad(5.0)
-        # camera.fov = 60
+
+        # mover camara 
         camera.fov = lerp(
             camera.fov,
             70.0, 
@@ -140,7 +142,9 @@ func _physics_process(delta: float) -> void:
         )
 
     else:
-        # camera.fov = 80
+        grip = 5.0
+        
+        # camera
         mesh.rotation.x = deg_to_rad(0.0)
         camera.fov = lerp(
             camera.fov,
@@ -153,7 +157,7 @@ func _physics_process(delta: float) -> void:
             1.0 * delta
         )
 
-   
+   # lerp para suavizar el derrape de regreso a neutral
     mesh.global_rotation.y = lerp_angle(
         mesh.global_rotation.y,
         target_angle,

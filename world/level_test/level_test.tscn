@@ -128,11 +128,11 @@ metadata/_custom_type_script = "uid://bxp3i4cnonh8y"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -84.77646, -0.17287827, -10.393251)
 script = ExtResource("2_nkae4")
 use_lowpoly_preview = true
-edge_containers = Array[NodePath]([NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")])
-edge_rp_targets = Array[NodePath]([NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")])
-edge_rp_target_dirs = Array[int]([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
-edge_rp_locals = Array[NodePath]([NodePath("RP_046"), NodePath("RP_046"), NodePath("RP_048"), NodePath("RP_048"), NodePath("RP_052"), NodePath("RP_052"), NodePath("RP_058"), NodePath("RP_058"), NodePath("RP_062"), NodePath("RP_062"), NodePath("RP_066"), NodePath("RP_066"), NodePath("RP_068"), NodePath("RP_068"), NodePath("RP_071"), NodePath("RP_071"), NodePath("RP_073"), NodePath("RP_073"), NodePath("RP_076"), NodePath("RP_076"), NodePath("RP_079"), NodePath("RP_080"), NodePath("RP_098"), NodePath("RP_060")])
-edge_rp_local_dirs = Array[int]([0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1])
+edge_containers = Array[NodePath]([NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")])
+edge_rp_targets = Array[NodePath]([NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")])
+edge_rp_target_dirs = Array[int]([-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1])
+edge_rp_locals = Array[NodePath]([NodePath(""), NodePath(""), NodePath("RP_058"), NodePath("RP_058"), NodePath("RP_062"), NodePath("RP_062"), NodePath("RP_066"), NodePath("RP_066"), NodePath("RP_068"), NodePath("RP_068"), NodePath("RP_071"), NodePath("RP_071"), NodePath("RP_073"), NodePath("RP_073"), NodePath("RP_076"), NodePath("RP_076"), NodePath("RP_079"), NodePath("RP_080"), NodePath("RP_098"), NodePath("RP_098"), NodePath("RP_060"), NodePath("RP_094")])
+edge_rp_local_dirs = Array[int]([0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 0])
 
 [node name="RP_001" type="Node3D" parent="RoadManager2/Road_001" unique_id=1591612069]
 transform = Transform3D(-0.029714903, 9.791938e-05, 0.9995584, 0, 1, -9.796264e-05, -0.9995584, -2.9109503e-06, -0.029714903, 0, 0.25, 0)
@@ -140,6 +140,7 @@ script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 next_mag = 69.5417
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_002")
 next_pt_init = NodePath("../RP_005")
 
@@ -150,6 +151,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 76.95995
 next_mag = 25.905054
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_003")
 next_pt_init = NodePath("../RP_001")
 
@@ -160,6 +162,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 123.98859
 next_mag = 76.95995
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_004")
 next_pt_init = NodePath("../RP_002")
 
@@ -170,6 +173,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 60.929558
 next_mag = 123.98859
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_043")
 next_pt_init = NodePath("../RP_003")
 
@@ -180,6 +184,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 69.5417
 next_mag = 80.67285
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_001")
 next_pt_init = NodePath("../RP_006")
 
@@ -190,6 +195,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 80.67285
 next_mag = 45.48148
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_005")
 next_pt_init = NodePath("../RP_007")
 
@@ -200,6 +206,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 45.48148
 next_mag = 25.208248
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_006")
 next_pt_init = NodePath("../RP_008")
 
@@ -210,6 +217,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 25.208248
 next_mag = 22.95897
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_007")
 next_pt_init = NodePath("../RP_009")
 
@@ -220,6 +228,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 22.95897
 next_mag = 22.880049
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_008")
 next_pt_init = NodePath("../RP_010")
 
@@ -230,6 +239,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 22.880049
 next_mag = 21.627771
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_009")
 next_pt_init = NodePath("../RP_011")
 
@@ -240,6 +250,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 21.627771
 next_mag = 24.495588
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_010")
 next_pt_init = NodePath("../RP_012")
 
@@ -250,6 +261,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 24.495588
 next_mag = 22.774723
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_011")
 next_pt_init = NodePath("../RP_013")
 
@@ -260,6 +272,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 22.774723
 next_mag = 43.586063
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_012")
 next_pt_init = NodePath("../RP_014")
 
@@ -270,6 +283,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 43.586063
 next_mag = 39.59153
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_013")
 next_pt_init = NodePath("../RP_015")
 
@@ -280,6 +294,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 39.59153
 next_mag = 72.868385
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_014")
 next_pt_init = NodePath("../RP_016")
 
@@ -290,6 +305,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 72.868385
 next_mag = 24.088358
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_015")
 next_pt_init = NodePath("../RP_017")
 
@@ -300,6 +316,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 24.088358
 next_mag = 22.223948
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_016")
 next_pt_init = NodePath("../RP_018")
 
@@ -310,6 +327,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 22.223948
 next_mag = 27.643526
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_017")
 next_pt_init = NodePath("../RP_019")
 
@@ -320,6 +338,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 27.643526
 next_mag = 19.460001
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_018")
 next_pt_init = NodePath("../RP_020")
 
@@ -330,6 +349,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 19.460001
 next_mag = 16.0
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_019")
 next_pt_init = NodePath("../RP_021")
 
@@ -340,6 +360,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.0
 next_mag = 24.693247
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_020")
 next_pt_init = NodePath("../RP_022")
 
@@ -350,6 +371,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 24.693247
 next_mag = 18.682325
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_021")
 next_pt_init = NodePath("../RP_023")
 
@@ -360,6 +382,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 18.682325
 next_mag = 24.488628
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_022")
 next_pt_init = NodePath("../RP_024")
 
@@ -370,6 +393,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 24.488628
 next_mag = 28.158478
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_023")
 next_pt_init = NodePath("../RP_025")
 
@@ -380,6 +404,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 28.158478
 next_mag = 26.157782
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_024")
 next_pt_init = NodePath("../RP_026")
 
@@ -390,6 +415,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 26.157782
 next_mag = 26.808765
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_025")
 next_pt_init = NodePath("../RP_027")
 
@@ -400,6 +426,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 26.808765
 next_mag = 19.551126
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_026")
 next_pt_init = NodePath("../RP_028")
 
@@ -410,6 +437,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 19.551126
 next_mag = 21.609402
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_027")
 next_pt_init = NodePath("../RP_029")
 
@@ -420,6 +448,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 21.609402
 next_mag = 18.341997
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_028")
 next_pt_init = NodePath("../RP_030")
 
@@ -430,6 +459,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 18.341997
 next_mag = 26.414097
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_029")
 next_pt_init = NodePath("../RP_031")
 
@@ -440,6 +470,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 26.414097
 next_mag = 27.43684
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_030")
 next_pt_init = NodePath("../RP_032")
 
@@ -450,6 +481,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 27.43684
 next_mag = 26.384949
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_031")
 next_pt_init = NodePath("../RP_033")
 
@@ -460,6 +492,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 26.384949
 next_mag = 19.663418
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_032")
 next_pt_init = NodePath("../RP_034")
 
@@ -470,6 +503,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 19.663418
 next_mag = 19.044695
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_033")
 next_pt_init = NodePath("../RP_035")
 
@@ -480,6 +514,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 19.044695
 next_mag = 16.0
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_034")
 next_pt_init = NodePath("../RP_036")
 
@@ -490,6 +525,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.0
 next_mag = 16.0
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_035")
 next_pt_init = NodePath("../RP_037")
 
@@ -500,6 +536,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.0
 next_mag = 30.266401
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_036")
 next_pt_init = NodePath("../RP_038")
 
@@ -510,6 +547,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 30.266401
 next_mag = 29.185184
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_037")
 next_pt_init = NodePath("../RP_039")
 
@@ -520,6 +558,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 29.185184
 next_mag = 23.344492
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_038")
 next_pt_init = NodePath("../RP_040")
 
@@ -530,6 +569,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 23.344492
 next_mag = 31.45179
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_039")
 next_pt_init = NodePath("../RP_041")
 
@@ -540,6 +580,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 31.45179
 next_mag = 39.139385
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_040")
 next_pt_init = NodePath("../RP_042")
 
@@ -550,32 +591,9 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 39.139385
 next_mag = 44.908638
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_041")
 next_pt_init = NodePath("../RP_081")
-
-[node name="RP_046" type="Node3D" parent="RoadManager2/Road_001" unique_id=997172576]
-transform = Transform3D(0.8317641, -1.1396626e-08, 0.5551293, -9.35838e-07, 1, 1.4227192e-06, -0.5551293, -1.7028777e-06, 0.8317641, -612.9888, -1.7499619, 26.343569)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 18.997507
-next_mag = 22.435383
-
-[node name="RP_048" type="Node3D" parent="RoadManager2/Road_001" unique_id=1880105508]
-transform = Transform3D(-0.38517746, -1.1396669e-08, 0.92284256, -1.5758778e-06, 1, -6.4539284e-07, -0.92284256, -1.7028779e-06, -0.38517746, -687.2749, -2.7499619, 20.550753)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 34.62022
-next_mag = 20.121857
-
-[node name="RP_052" type="Node3D" parent="RoadManager2/Road_001" unique_id=1187558569]
-transform = Transform3D(-0.0706355, -1.1396721e-08, -0.9975022, 1.6978194e-06, 1, -1.3165189e-07, 0.9975022, -1.7028779e-06, -0.0706355, -602.43896, -3.7497292, 145.20297)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 16.0
-next_mag = 28.997852
 
 [node name="RP_058" type="Node3D" parent="RoadManager2/Road_001" unique_id=781885519]
 transform = Transform3D(0.97338516, -1.1396526e-08, 0.22917555, -3.7916482e-07, 1, 1.6601681e-06, -0.22917555, -1.7028781e-06, 0.97338516, -749.90137, -4.749695, 156.92831)
@@ -584,6 +602,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 21.09675
 next_mag = 16.0
+gutter_profile = Vector2(2, -1)
 
 [node name="RP_062" type="Node3D" parent="RoadManager2/Road_001" unique_id=246695293]
 transform = Transform3D(0.62785155, -1.1396449e-08, 0.7783331, -1.3182512e-06, 1, 1.078025e-06, -0.7783331, -1.7028781e-06, 0.62785155, -962.39355, -5.749649, 152.20306)
@@ -592,6 +611,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.0
 next_mag = 30.541304
+gutter_profile = Vector2(2, -1)
 
 [node name="RP_066" type="Node3D" parent="RoadManager2/Road_001" unique_id=822693609]
 transform = Transform3D(0.8546783, -1.1396449e-08, -0.51915807, 8.938032e-07, 1, 1.4494963e-06, 0.51915807, -1.7028781e-06, 0.8546783, -834.3402, -6.7497635, 72.29028)
@@ -600,6 +620,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 35.971073
 next_mag = 20.346153
+gutter_profile = Vector2(2, -1)
 
 [node name="RP_068" type="Node3D" parent="RoadManager2/Road_001" unique_id=1843937601]
 transform = Transform3D(-0.82108563, -1.1396356e-08, 0.570805, -9.813687e-07, 1, -1.3917036e-06, -0.570805, -1.702878e-06, -0.82108563, -935.6727, -7.7497787, 64.53168)
@@ -608,6 +629,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 23.52241
 next_mag = 20.861237
+gutter_profile = Vector2(2, -1)
 
 [node name="RP_071" type="Node3D" parent="RoadManager2/Road_001" unique_id=538223593]
 transform = Transform3D(0.29629228, -1.1396356e-08, -0.9550973, 1.6297907e-06, 1, 4.9366497e-07, 0.9550973, -1.702878e-06, 0.29629228, -992.4944, -8.74987, 0.538599)
@@ -616,6 +638,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 23.950344
 next_mag = 16.0
+gutter_profile = Vector2(2, -1)
 
 [node name="RP_073" type="Node3D" parent="RoadManager2/Road_001" unique_id=380806809]
 transform = Transform3D(0.8766483, -1.1396306e-08, -0.48113176, 8.292992e-07, 1, 1.4873419e-06, 0.48113176, -1.702878e-06, 0.8766483, -918.19226, -8.749901, -11.2613735)
@@ -624,6 +647,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.0
 next_mag = 16.0
+gutter_profile = Vector2(2, -1)
 
 [node name="RP_076" type="Node3D" parent="RoadManager2/Road_001" unique_id=1706960930]
 transform = Transform3D(-0.5681067, -1.1396221e-08, 0.82295495, -1.4078662e-06, 1, -9.580378e-07, -0.82295495, -1.7028781e-06, -0.5681067, -969.45374, -9.750038, -73.89337)
@@ -632,6 +656,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 34.325916
 next_mag = 20.599161
+gutter_profile = Vector2(2, -1)
 
 [node name="RP_079" type="Node3D" parent="RoadManager2/Road_001" unique_id=1549807752]
 transform = Transform3D(0.24585424, -1.1396211e-08, 0.9693068, -1.6478094e-06, 1, 4.297062e-07, -0.9693068, -1.702878e-06, 0.24585424, -1386.8998, -20.749882, 54.298775)
@@ -640,6 +665,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 160.18176
 next_mag = 162.04799
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_080")
 
 [node name="RP_080" type="Node3D" parent="RoadManager2/Road_001" unique_id=2044853967]
@@ -649,6 +675,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 160.18176
 next_mag = 160.18176
+gutter_profile = Vector2(2, -1)
 next_pt_init = NodePath("../RP_079")
 
 [node name="RP_081" type="Node3D" parent="RoadManager2/Road_001" unique_id=311112254]
@@ -658,6 +685,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 44.908638
 next_mag = 61.50751
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_042")
 next_pt_init = NodePath("../RP_082")
 
@@ -668,6 +696,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 61.50751
 next_mag = 59.40393
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_081")
 next_pt_init = NodePath("../RP_083")
 
@@ -678,6 +707,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 59.40393
 next_mag = 50.97467
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_082")
 next_pt_init = NodePath("../RP_084")
 
@@ -688,36 +718,40 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 50.97467
 next_mag = 40.94872
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_083")
 next_pt_init = NodePath("../RP_085")
 
 [node name="RP_085" type="Node3D" parent="RoadManager2/Road_001" unique_id=1676616192]
-transform = Transform3D(0.6676389, 9.7919445e-05, -0.74448526, -6.320766e-05, 1, 7.484305e-05, 0.74448526, -2.910957e-06, 0.6676389, -423.41602, 16.013199, -839.96423)
+transform = Transform3D(0.6676389, 9.7919445e-05, -0.74448526, -6.320766e-05, 1, 7.484305e-05, 0.74448526, -2.910957e-06, 0.6676389, -423.41562, 17.233358, -839.96423)
 script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 40.94872
 next_mag = 34.586895
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_084")
 next_pt_init = NodePath("../RP_086")
 
 [node name="RP_086" type="Node3D" parent="RoadManager2/Road_001" unique_id=1801652970]
-transform = Transform3D(0.42120337, 9.7919445e-05, -0.9069662, -3.8603866e-05, 1, 9.0035726e-05, 0.9069662, -2.9109535e-06, 0.42120337, -481.22897, 18.018929, -801.982)
+transform = Transform3D(0.42120337, 9.7919445e-05, -0.9069662, -3.8603866e-05, 1, 9.0035726e-05, 0.9069662, -2.9109535e-06, 0.42120337, -481.2285, 18.601261, -801.982)
 script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 34.586895
 next_mag = 34.818714
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_085")
 next_pt_init = NodePath("../RP_087")
 
 [node name="RP_087" type="Node3D" parent="RoadManager2/Road_001" unique_id=1911204949]
-transform = Transform3D(-0.38496763, 9.7919445e-05, -0.92293006, 4.0382427e-05, 1, 8.925218e-05, 0.92293006, -2.9109576e-06, -0.38496763, -550.85596, 19.025703, -803.18646)
+transform = Transform3D(-0.38496763, 9.7919445e-05, -0.92293006, 4.0382427e-05, 1, 8.925218e-05, 0.92293006, -2.9109576e-06, -0.38496763, -550.85583, 20.025703, -803.18646)
 script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 34.818714
 next_mag = 181.00429
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_086")
 next_pt_init = NodePath("../RP_088")
 
@@ -728,6 +762,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 181.00429
 next_mag = 47.010082
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_087")
 next_pt_init = NodePath("../RP_089")
 
@@ -738,6 +773,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 47.010082
 next_mag = 39.051716
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_088")
 next_pt_init = NodePath("../RP_090")
 
@@ -748,6 +784,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 39.051716
 next_mag = 39.604996
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_089")
 next_pt_init = NodePath("../RP_091")
 
@@ -758,6 +795,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 39.604996
 next_mag = 35.60854
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_090")
 next_pt_init = NodePath("../RP_092")
 
@@ -768,58 +806,20 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 35.60854
 next_mag = 65.82453
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_091")
 next_pt_init = NodePath("../RP_093")
 
 [node name="RP_093" type="Node3D" parent="RoadManager2/Road_001" unique_id=563180338]
-transform = Transform3D(0.97328115, 9.791947e-05, 0.22961664, -9.5971576e-05, 1, -1.9650743e-05, -0.22961664, -2.9109744e-06, 0.97328115, -779.5168, 39.047417, -1074.2493)
+transform = Transform3D(0.97328115, 9.791947e-05, 0.22961664, -9.5971576e-05, 1, -1.9650743e-05, -0.22961664, -2.9109744e-06, 0.97328115, -762.752, 67.046, -1003.1997)
 script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 65.82453
-next_mag = 66.07026
+prior_mag = 73.21118
+next_mag = 47.37329
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_092")
 next_pt_init = NodePath("../RP_094")
-
-[node name="RP_094" type="Node3D" parent="RoadManager2/Road_001" unique_id=3747229]
-transform = Transform3D(0.4926034, 9.791947e-05, 0.870254, -5.0768755e-05, 1, -8.378085e-05, -0.870254, -2.9109788e-06, 0.4926034, -696.42786, 44.039665, -971.49994)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 66.07026
-next_mag = 88.2572
-prior_pt_init = NodePath("../RP_093")
-next_pt_init = NodePath("../RP_095")
-
-[node name="RP_095" type="Node3D" parent="RoadManager2/Road_001" unique_id=402327215]
-transform = Transform3D(-0.64990044, 9.791946e-05, 0.76001936, 6.14255e-05, 1, -7.6312535e-05, -0.76001936, -2.9109844e-06, -0.64990044, -524.0979, 46.41099, -1009.70734)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 88.2572
-next_mag = 49.88603
-prior_pt_init = NodePath("../RP_094")
-next_pt_init = NodePath("../RP_096")
-
-[node name="RP_096" type="Node3D" parent="RoadManager2/Road_001" unique_id=595728690]
-transform = Transform3D(-0.977756, 9.791947e-05, 0.20974569, 9.513078e-05, 1, -2.3384418e-05, -0.20974568, -2.9109835e-06, -0.977756, -474.55997, 47.017708, -1096.3125)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 49.88603
-next_mag = 29.22299
-prior_pt_init = NodePath("../RP_095")
-next_pt_init = NodePath("../RP_097")
-
-[node name="RP_097" type="Node3D" parent="RoadManager2/Road_001" unique_id=133064073]
-transform = Transform3D(-0.58632505, 9.791947e-05, -0.8100759, 5.977075e-05, 1, 7.761542e-05, 0.8100759, -2.9109822e-06, -0.58632505, -500.98135, 47.02021, -1149.4454)
-script = ExtResource("3_jy51n")
-traffic_dir = Array[int]([2, 2, 1, 1])
-lanes = Array[int]([2, 4, 4, 2])
-prior_mag = 16.466919
-next_mag = 68.440186
-prior_pt_init = NodePath("../RP_096")
-next_pt_init = NodePath("../RP_098")
 
 [node name="RP_098" type="Node3D" parent="RoadManager2/Road_001" unique_id=128187411]
 transform = Transform3D(-0.5642804, 9.791947e-05, -0.8255832, 5.7657293e-05, 1, 7.919806e-05, 0.8255832, -2.9109835e-06, -0.5642804, -1043.5198, 78, -1531.205)
@@ -828,7 +828,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 40.43042
 next_mag = 365.65088
-prior_pt_init = NodePath("../RP_097")
+gutter_profile = Vector2(2, -1)
 
 [node name="RP_043" type="Node3D" parent="RoadManager2/Road_001" unique_id=1205634345]
 transform = Transform3D(-0.7633728, -1.1396513e-08, 0.6459582, -1.1086873e-06, 1, -1.2925685e-06, -0.6459582, -1.7028773e-06, -0.7633728, -561.2727, 0.25009155, 66.01462)
@@ -837,6 +837,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 79.49493
 next_mag = 60.929558
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_044")
 next_pt_init = NodePath("../RP_004")
 
@@ -847,6 +848,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 61.816395
 next_mag = 79.49493
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_045")
 next_pt_init = NodePath("../RP_043")
 
@@ -857,6 +859,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 57.32688
 next_mag = 61.816395
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_047")
 next_pt_init = NodePath("../RP_044")
 
@@ -867,6 +870,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 56.562366
 next_mag = 57.32688
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_049")
 next_pt_init = NodePath("../RP_045")
 
@@ -877,6 +881,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 51.446537
 next_mag = 56.562366
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_050")
 next_pt_init = NodePath("../RP_047")
 
@@ -887,6 +892,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 22.331821
 next_mag = 51.446537
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_051")
 next_pt_init = NodePath("../RP_049")
 
@@ -897,6 +903,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.90896
 next_mag = 22.331821
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_053")
 next_pt_init = NodePath("../RP_050")
 
@@ -907,16 +914,19 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.108929
 next_mag = 16.90896
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_054")
 next_pt_init = NodePath("../RP_051")
 
 [node name="RP_054" type="Node3D" parent="RoadManager2/Road_001" unique_id=1559977517]
 transform = Transform3D(-0.9998908, -1.1396601e-08, 0.014777512, -3.6559648e-08, 1, -1.7025228e-06, -0.014777512, -1.7028773e-06, -0.9998908, -793.0996, 0.25012207, 113.534515)
+visible = false
 script = ExtResource("3_jy51n")
 traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.500559
 next_mag = 16.108929
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_055")
 next_pt_init = NodePath("../RP_053")
 
@@ -927,6 +937,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 16.0
 next_mag = 16.500559
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_056")
 next_pt_init = NodePath("../RP_054")
 
@@ -937,6 +948,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 34.422832
 next_mag = 16.0
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_057")
 next_pt_init = NodePath("../RP_055")
 
@@ -947,6 +959,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 49.105507
 next_mag = 34.422832
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_059")
 next_pt_init = NodePath("../RP_056")
 
@@ -957,6 +970,7 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 40.536407
 next_mag = 49.105507
+gutter_profile = Vector2(2, -1)
 prior_pt_init = NodePath("../RP_060")
 next_pt_init = NodePath("../RP_057")
 
@@ -967,7 +981,18 @@ traffic_dir = Array[int]([2, 2, 1, 1])
 lanes = Array[int]([2, 4, 4, 2])
 prior_mag = 40.536407
 next_mag = 40.536407
+gutter_profile = Vector2(2, -1)
 next_pt_init = NodePath("../RP_059")
+
+[node name="RP_094" type="Node3D" parent="RoadManager2/Road_001" unique_id=1127867541]
+transform = Transform3D(-0.3781703, -0.004828319, 0.92572343, 3.433544e-05, 0.99998635, 0.00522968, -0.92573607, 0.0020094956, -0.37816498, -686.9971, 77.443794, -1035.4452)
+script = ExtResource("3_jy51n")
+traffic_dir = Array[int]([2, 2, 1, 1])
+lanes = Array[int]([2, 4, 4, 2])
+prior_mag = 19.891083
+next_mag = 35.821136
+gutter_profile = Vector2(2, -1)
+prior_pt_init = NodePath("../RP_093")
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." unique_id=1651379797]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 0, -138)
@@ -1102,7 +1127,7 @@ use_collision = true
 size = Vector3(101.84003, 3.0332031, 7.220459)
 
 [node name="CSGBox3D35" type="CSGBox3D" parent="CSGCombiner3D2/Bridge" unique_id=2049047862]
-transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -40.381775, 13.793515, 24.362413)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 1, -40.381775, 14.4558325, 24.362413)
 use_collision = true
 size = Vector3(101.84003, 3.0332031, 7.220459)
 
@@ -1282,14 +1307,9 @@ metadata/_edit_lock_ = true
 data_directory = "res://terrain_data"
 material = SubResource("Terrain3DMaterial_sb4ee")
 assets = SubResource("Terrain3DAssets_wp1i3")
-collision_mode = 4
 collision_shape_size = 8
 top_level = true
 metadata/_edit_lock_ = true
 
 [node name="CarV4" parent="." unique_id=1717532777 instance=ExtResource("6_sb4ee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.230911, -68.05162)
-hover_height = 0.5
-drift_grip = 2.0
-drift_force = 10.0
-drift_steering_mult = 1.2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -920.62274, 76.17452, -1052.574)
