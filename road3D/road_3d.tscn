@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bqd30c5d4trsp"]
+
+[ext_resource type="Script" uid="uid://dnxnbdyf5mw4x" path="res://road3D/road_3d.gd" id="1_cl6e0"]
+
+[sub_resource type="Curve3D" id="Curve3D_t4xjr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 3.597694, -0.9749999, -8.39204, 0, 0, 0, 0, 0, 0, 7.45692, -0.97500086, 0.33729553, 0, 0, 0, 0, 0, 0, 4.89118, -0.9750004, 6.7654524, 0, 0, 0, 0, 0, 0, 10.968872, -0.9750004, 7.9620056),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[node name="Road3D" type="Node3D" unique_id=1683510584 node_paths=PackedStringArray("path")]
+script = ExtResource("1_cl6e0")
+path = NodePath("Path3D")
+
+[node name="Path3D" type="Path3D" parent="." unique_id=2081806796]
+curve = SubResource("Curve3D_t4xjr")
+
+[node name="RoadMesh" type="MeshInstance3D" parent="." unique_id=233341216]

@@ -5,9 +5,6 @@ extends Node3D
 @export var road_width: float = 7.0
 @export var road_resolution: int = 4
 
-var last_curve_length:float = -1.0
-var last_point_count:int = -1
-
 @export_category("Barriers")
 @export var generate_left_barrier: bool = true
 @export var generate_right_barrier: bool = true
