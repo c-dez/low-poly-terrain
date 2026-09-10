@@ -21,8 +21,8 @@ size = Vector3(2, 0.15, 0.1)
 material = SubResource("StandardMaterial3D_a72tw")
 
 [node name="Rail2" type="CSGBox3D" parent="." unique_id=2071790737]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.2, 0)
-size = Vector3(2, 0.15, 0.1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.06279297, 0)
+size = Vector3(2, 0.6755859, 0.1)
 material = SubResource("StandardMaterial3D_a72tw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1099167837]

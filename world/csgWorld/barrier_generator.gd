@@ -8,8 +8,8 @@ extends Node3D
 ## altura de barrera
 @export var height: float = 0.0
 
-@export var left_enable : bool = false
-@export var right_enable : bool = false
+@export var left_enabled: bool = false
+@export var right_enabled: bool = false
 
 ## Llama a generate_barriers()
 @export var generate: bool = false:
@@ -39,11 +39,24 @@ func _ready() -> void:
 func clear_barriers() -> void:
     for child in %Right.get_children():
         child.queue_free()
+    
+    for child in %Left.get_children():
+        child.queue_free()
 
 
-func generate_barriers() -> void: # generate_one()
+func generate_barriers() -> void:
     clear_barriers()
 
+    if barrier_scene == null:
+        return
+    
+    if left_enabled:
+        generate_side(-1.0, %Left)
+    if right_enabled:
+        generate_side(1.0, %Right)
+
+
+func generate_side(side_sign: float, container: Node3D) -> void: 
     if barrier_scene == null:
         return
 
@@ -74,12 +87,12 @@ func generate_barriers() -> void: # generate_one()
 
         var side := Vector3.UP.cross(direction).normalized()
 
-        pos += side * offset
+        pos += side * offset * side_sign
         pos.y += height
 
         var barrier = barrier_scene.instantiate()
 
-        $Right.add_child(barrier)
+        container.add_child(barrier)
 
         barrier.global_position = path.to_global(pos)
 
@@ -94,5 +107,4 @@ func generate_barriers() -> void: # generate_one()
         )
 
         distance += spacing
-        
 
