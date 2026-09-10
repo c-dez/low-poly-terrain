@@ -17,8 +17,14 @@ func _ready() -> void:
     # generate_one()
     generate()
 
+func clear_barriers() -> void:
+    for child in %Right.get_children():
+        child.queue_free()
 
-func generate():
+
+func generate() -> void: # generate_one()
+    clear_barriers()
+
     if barrier_scene == null:
         return
 
@@ -71,12 +77,6 @@ func generate():
         distance += spacing
         
 
-
-
-
-
-
-        
 # func generate_one():
 #     if barrier_scene == null:
 #         return
