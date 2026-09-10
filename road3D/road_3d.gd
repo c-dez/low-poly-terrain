@@ -23,6 +23,7 @@ func _ready() -> void:
 
 @onready var road: CSGPolygon3D = %Polygon
 func update_road() -> void:
+    # var road: CSGPolygon3D = %Polygon # usando @onready por que si no causa error
     if road == null:
         return
 
