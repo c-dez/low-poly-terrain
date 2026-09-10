@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://djwj1dti2ff2h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a72tw"]
+albedo_color = Color(0.53212327, 0.54488003, 0.53763425, 1)
+metallic = 0.7
+roughness = 0.3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3jou"]
+size = Vector3(2, 1.5, 0.2)
+
+[node name="Barrier" type="Node3D" unique_id=1161982181]
+
+[node name="Post" type="CSGCylinder3D" parent="." unique_id=73241015]
+radius = 0.05
+height = 1.5
+material = SubResource("StandardMaterial3D_a72tw")
+
+[node name="Rail1" type="CSGBox3D" parent="." unique_id=2021757793]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.7, 0)
+size = Vector3(2, 0.15, 0.1)
+material = SubResource("StandardMaterial3D_a72tw")
+
+[node name="Rail2" type="CSGBox3D" parent="." unique_id=2071790737]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.2, 0)
+size = Vector3(2, 0.15, 0.1)
+material = SubResource("StandardMaterial3D_a72tw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1099167837]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=685171309]
+shape = SubResource("BoxShape3D_y3jou")
