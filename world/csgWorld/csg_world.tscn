@@ -22,7 +22,7 @@ albedo_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_y3jou"]
 _data = {
-"points": PackedVector3Array(0, 0, 1.5, 0, 0, 0, 0.86689764, -2.975, -28.33134, -11, 0, -17, 11, 0, 17, -10.762, -2.975, -2, 0, 0, 0, -2, -2, 2, 30.561134, -3.0069478, -0.3133992),
+"points": PackedVector3Array(0, 0, 1.5, 0, 0, 0, 0.86689764, -2.975, -28.33134, -11, 0, -17, 11, 0, 17, -10.762, -2.975, -2, 0, 0, 0, -2, -2, 2, 30.562355, -2.0069485, -0.31306875),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -71,7 +71,7 @@ metadata/_edit_lock_ = true
 
 [node name="Barriers" type="Node3D" parent="Road3D" unique_id=6670837]
 script = ExtResource("2_eyc30")
-height = -1.0
+height = -0.5
 barrier_scene = ExtResource("3_mxdhj")
 
 [node name="Left" type="Node3D" parent="Road3D/Barriers" unique_id=937712102]
