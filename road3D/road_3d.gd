@@ -1,11 +1,14 @@
 @tool
 extends Node3D
 
+
 @export var road_width: float = 8.0:
     set(value):
         road_width = value
         update_road()
         
+signal road_changed
+
 
 func update_road() -> void:
     var road: CSGPolygon3D = %CSGPolygon3D
@@ -22,4 +25,6 @@ func update_road() -> void:
     ])
 
     road.polygon = polygon
+
+    road_changed.emit()
     pass

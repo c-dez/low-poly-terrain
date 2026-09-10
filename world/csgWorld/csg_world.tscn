@@ -46,7 +46,6 @@ metadata/_edit_lock_ = true
 [node name="Road3D" type="Node3D" parent="." unique_id=1111751185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0349588, 0)
 script = ExtResource("1_bebao")
-road_width = 4.0
 
 [node name="Path3D" type="Path3D" parent="Road3D" unique_id=456151773]
 unique_name_in_owner = true
@@ -56,7 +55,7 @@ curve = SubResource("Curve3D_y3jou")
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="Road3D" unique_id=1520717231]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9750001, 0)
-polygon = PackedVector2Array(-2, 0, 2, 0, 2, -0.2, -2, -0.2)
+polygon = PackedVector2Array(-4, 0, 4, 0, 4, -0.2, -4, -0.2)
 mode = 2
 path_node = NodePath("../Path3D")
 path_interval_type = 0
@@ -73,7 +72,7 @@ metadata/_edit_lock_ = true
 [node name="Barriers" type="Node3D" parent="Road3D" unique_id=6670837]
 script = ExtResource("2_eyc30")
 spacing = 1.7
-offset = 5.0
+offset = 0.5
 height = -0.5
 left_enabled = true
 right_enabled = true

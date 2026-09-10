@@ -34,6 +34,11 @@ extends Node3D
 
 
 func _ready() -> void:
+    var road: Node3D = get_parent()
+
+    if road.has_signal('road_changed'):
+        road.road_changed.connect(_on_road_changed)
+
     if Engine.is_editor_hint():
         return
     
@@ -60,7 +65,7 @@ func generate_barriers() -> void:
         generate_side(1.0, %Right)
 
 
-func generate_side(side_sign: float, container: Node3D) -> void: 
+func generate_side(side_sign: float, container: Node3D) -> void:
     if barrier_scene == null:
         return
 
@@ -91,7 +96,7 @@ func generate_side(side_sign: float, container: Node3D) -> void:
 
         var side := Vector3.UP.cross(direction).normalized()
 
-        pos += side * (offset + get_parent().road_width/2)* side_sign
+        pos += side * (offset + get_parent().road_width / 2) * side_sign
         pos.y += height
 
         var barrier = barrier_scene.instantiate()
@@ -112,3 +117,6 @@ func generate_side(side_sign: float, container: Node3D) -> void:
 
         distance += spacing
 
+func _on_road_changed() -> void:
+    if Engine.is_editor_hint():
+        generate_barriers()
