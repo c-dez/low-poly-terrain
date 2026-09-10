@@ -1,6 +1,10 @@
 @tool
 extends Node3D
 
+
+## generate/ clear se mantienen como respaldo, pero van a ser llamadas en Road3D al modificarlo
+
+
 ## espacio entre barreras
 @export var spacing: float = 2.0
 ## distancia desde path hacia los lados
@@ -87,7 +91,7 @@ func generate_side(side_sign: float, container: Node3D) -> void:
 
         var side := Vector3.UP.cross(direction).normalized()
 
-        pos += side * offset * side_sign
+        pos += side * (offset + get_parent().road_width/2)* side_sign
         pos.y += height
 
         var barrier = barrier_scene.instantiate()
