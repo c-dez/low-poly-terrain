@@ -1,5 +1,7 @@
 @tool
 extends Node3D
+class_name Road3D
+
 
 
 @export var road_width: float = 8.0:
@@ -10,8 +12,17 @@ extends Node3D
 signal road_changed
 
 
+func _ready() -> void:
+    var path: Path3D = %Path3D
+    if path.curve:
+        if not path.curve.changed.is_connected(_on_curve_changed):
+            path.curve.changed.connect(_on_curve_changed)
+
+    update_road()
+
+
+@onready var road: CSGPolygon3D = %Polygon
 func update_road() -> void:
-    var road: CSGPolygon3D = %CSGPolygon3D
     if road == null:
         return
 
@@ -19,12 +30,20 @@ func update_road() -> void:
 
     var polygon := PackedVector2Array([
         Vector2(-half_width, 0.0),
-        Vector2( half_width, 0.0),
-        Vector2( half_width, -0.2),
-        Vector2(-half_width, -0.2)
+        Vector2(half_width, 0.0),
+        Vector2(half_width, -0.5),
+        Vector2(-half_width, -0.5)
     ])
 
     road.polygon = polygon
 
     road_changed.emit()
     pass
+
+
+#SIGNALS
+func _on_curve_changed() -> void:
+    if not Engine.is_editor_hint():
+        return
+
+    road_changed.emit()

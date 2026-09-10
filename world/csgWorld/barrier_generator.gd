@@ -22,6 +22,7 @@ extends Node3D
         if value and Engine.is_editor_hint():
             call_deferred('generate_barriers')
             generate = false
+
 ## Lama a clear_barriers()
 @export var clear: bool = false:
     set(value):
@@ -43,14 +44,6 @@ func _ready() -> void:
         return
     
     generate_barriers()
-
-
-func clear_barriers() -> void:
-    for child in %Right.get_children():
-        child.queue_free()
-    
-    for child in %Left.get_children():
-        child.queue_free()
 
 
 func generate_barriers() -> void:
@@ -117,6 +110,16 @@ func generate_side(side_sign: float, container: Node3D) -> void:
 
         distance += spacing
 
+
+func clear_barriers() -> void:
+    for child in %Right.get_children():
+        child.queue_free()
+    
+    for child in %Left.get_children():
+        child.queue_free()
+
+
+# SIGNAL
 func _on_road_changed() -> void:
     if Engine.is_editor_hint():
         generate_barriers()

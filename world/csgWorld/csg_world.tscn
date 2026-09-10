@@ -22,10 +22,14 @@ albedo_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_y3jou"]
 _data = {
-"points": PackedVector3Array(0, 0, 1.5, 0, 0, 0, 0.86689764, -2.975, -28.33134, -11, 0, -17, 11, 0, 17, -10.762, -2.975, -2, 0, 0, 0, -2, -2, 2, 30.562355, -2.0069485, -0.31306875),
+"points": PackedVector3Array(0, 0, 1.5, 0, 0, 0, -19.35247, 0.030228615, -41.71135, -7, 0, -14, 7, 0, 14, -10.970467, 1.0142407, -1.8651094, 0, 0, 0, -2, -2, 2, 32.465477, 0.5171633, -1.1752715),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a72tw"]
+albedo_color = Color(0.12955844, 0.12955847, 0.12955844, 1)
+roughness = 0.27
 
 [node name="csgWorld" type="Node3D" unique_id=1766795205]
 
@@ -44,18 +48,19 @@ material = SubResource("StandardMaterial3D_y3jou")
 metadata/_edit_lock_ = true
 
 [node name="Road3D" type="Node3D" parent="." unique_id=1111751185]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0349588, 0)
 script = ExtResource("1_bebao")
+road_width = 10.0
+metadata/_edit_lock_ = true
 
 [node name="Path3D" type="Path3D" parent="Road3D" unique_id=456151773]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 curve = SubResource("Curve3D_y3jou")
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Road3D" unique_id=1520717231]
+[node name="Polygon" type="CSGPolygon3D" parent="Road3D" unique_id=1520717231]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9750001, 0)
-polygon = PackedVector2Array(-4, 0, 4, 0, 4, -0.2, -4, -0.2)
+use_collision = true
+polygon = PackedVector2Array(-5, 0, 5, 0, 5, -0.5, -5, -0.5)
 mode = 2
 path_node = NodePath("../Path3D")
 path_interval_type = 0
@@ -67,16 +72,16 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
+material = SubResource("StandardMaterial3D_a72tw")
 metadata/_edit_lock_ = true
 
 [node name="Barriers" type="Node3D" parent="Road3D" unique_id=6670837]
 script = ExtResource("2_eyc30")
-spacing = 1.7
+spacing = 1.5
 offset = 0.5
-height = -0.5
 left_enabled = true
-right_enabled = true
 barrier_scene = ExtResource("3_mxdhj")
+metadata/_edit_lock_ = true
 
 [node name="Left" type="Node3D" parent="Road3D/Barriers" unique_id=937712102]
 unique_name_in_owner = true
