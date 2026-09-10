@@ -8,15 +8,17 @@ extends Node3D
 ## altura de barrera
 @export var height: float = 0.0
 
-@export var barrier_scene: PackedScene
+@export var left_enable : bool = false
+@export var right_enable : bool = false
 
+## Llama a generate_barriers()
 @export var generate: bool = false:
     set(value):
         generate = value
         if value and Engine.is_editor_hint():
             call_deferred('generate_barriers')
             generate = false
-
+## Lama a clear_barriers()
 @export var clear: bool = false:
     set(value):
         clear = value
@@ -24,6 +26,7 @@ extends Node3D
             call_deferred('clear_barriers')
             clear = false
 
+@export var barrier_scene: PackedScene
 
 
 func _ready() -> void:
@@ -32,18 +35,6 @@ func _ready() -> void:
     
     generate_barriers()
 
-# func _process(_delta: float) -> void:
-#     if not Engine.is_editor_hint():
-#         return
-
-#     if generate:
-#         print("GENERATE DETECTADO")
-#         generate = false
-#         generate_barriers()
-
-#     if clear:
-#         clear = false
-#         clear_barriers()
 
 func clear_barriers() -> void:
     for child in %Right.get_children():

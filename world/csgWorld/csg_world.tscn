@@ -72,6 +72,8 @@ metadata/_edit_lock_ = true
 [node name="Barriers" type="Node3D" parent="Road3D" unique_id=6670837]
 script = ExtResource("2_eyc30")
 height = -0.5
+left_enable = null
+right_enable = null
 barrier_scene = ExtResource("3_mxdhj")
 
 [node name="Left" type="Node3D" parent="Road3D/Barriers" unique_id=937712102]
