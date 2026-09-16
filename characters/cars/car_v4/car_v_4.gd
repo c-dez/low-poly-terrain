@@ -8,37 +8,35 @@ extends CharacterBody3D
 @export var acceleration: float = 50.0
 @export var max_speed: float = 100.0
 @export var steering_speed: float = 1.0
-@export var grip :float = 5.0
+@export var grip: float = 5.0
 @export_category('dift')
-@export var drift_grip : float = 1.0
-@export var drift_force : float = 5.0
-@export var drift_steering_mult : float = 1.3
+@export var drift_grip: float = 1.0
+@export var drift_force: float = 5.0
+@export var drift_steering_mult: float = 1.3
 
-@onready var mesh :MeshInstance3D = $Mesh
+@onready var mesh: MeshInstance3D = $Mesh
 
-@export var fl_wheel:MeshInstance3D 
-@export var fr_wheel:MeshInstance3D
+@export var fl_wheel: MeshInstance3D
+@export var fr_wheel: MeshInstance3D
 
 
 func _ready() -> void:
     # ray.add_exception(collision)
     pass
 func _physics_process(delta: float) -> void:
-
-    
     # variables
     # body direcctions
-    var forward := - global_transform.basis.z
+    var forward := -global_transform.basis.z
     var right := global_transform.basis.x
     # direction speeds
     var forward_speed := velocity.dot(forward)
     var lateral_speed := velocity.dot(right)
 
     #debug
-    var label :Label = $Label
+    var label: Label = $Label
     var label_text = str(int(
         # (forward_speed *3.6)/2  # forward km/h
-        lateral_speed  # lateral m/s
+        lateral_speed # lateral m/s
 
     ))
     label.text = label_text
@@ -64,7 +62,7 @@ func _physics_process(delta: float) -> void:
         velocity.y -= 20.0 * delta
 
 
-    var acceleration_mult:= 10.0
+    var acceleration_mult := 10.0
     velocity += forward * input * acceleration_mult * delta
 
     # velocidad maxima
@@ -100,8 +98,8 @@ func _physics_process(delta: float) -> void:
     var lateral_velocity := right * lateral_speed
     velocity -= lateral_velocity * grip * delta
 
-    var camera:Camera3D = $Camera3D
-    var camera_forward:= - camera.global_transform.basis.z
+    var camera: Camera3D = $Camera3D
+    var camera_forward := -camera.global_transform.basis.z
 
     var target_angle := atan2(
         camera_forward.x,
@@ -109,11 +107,10 @@ func _physics_process(delta: float) -> void:
     )
     # extra giro
     if drifting and forward_speed > 10.0:
-
         grip = drift_grip
-        velocity += (right * drift_force * delta )
+        velocity += (right * drift_force * delta)
         # drift angle que dependa de lateral_speed
-        print(abs(lateral_speed))
+        # print(abs(lateral_speed))
         var drift_angle := deg_to_rad(40.0)
         
 
@@ -132,8 +129,8 @@ func _physics_process(delta: float) -> void:
         # mover camara 
         camera.fov = lerp(
             camera.fov,
-            70.0, 
-            10.0 *delta
+            70.0,
+            10.0 * delta
         )
         camera.position.z = lerp(
             camera.position.z,
@@ -148,8 +145,8 @@ func _physics_process(delta: float) -> void:
         mesh.rotation.x = deg_to_rad(0.0)
         camera.fov = lerp(
             camera.fov,
-            85.0, 
-            1.0 *delta
+            85.0,
+            1.0 * delta
         )
         camera.position.z = lerp(
             camera.position.z,
@@ -168,12 +165,10 @@ func _physics_process(delta: float) -> void:
 
 
     #girar ruedas
-    fl_wheel.rotation.y = deg_to_rad(45) *- steering
-    fr_wheel.rotation.y = deg_to_rad(45) *- steering
+    fl_wheel.rotation.y = deg_to_rad(40) * -steering
+    fr_wheel.rotation.y = deg_to_rad(40) * -steering
         
 
 func rotate_mesh(value):
     # necesito angulo camara comparado con angulo body
-
-
     pass

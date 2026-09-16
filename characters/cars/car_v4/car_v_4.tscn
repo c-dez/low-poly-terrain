@@ -1334,6 +1334,9 @@ shadow_mesh = SubResource("ArrayMesh_ox0mt")
 
 [node name="CarV4" type="CharacterBody3D" unique_id=1717532777 node_paths=PackedStringArray("fl_wheel", "fr_wheel")]
 script = ExtResource("1_12v1u")
+hover_height = 0.5
+max_speed = 50.0
+drift_grip = 4.0
 fl_wheel = NodePath("Mesh/Car_04/Car_04_Wheel_FL")
 fr_wheel = NodePath("Mesh/Car_04/Car_04_Wheel_FR")
 
